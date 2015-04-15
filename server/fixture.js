@@ -1,0 +1,121 @@
+if (ContentItems.find().count() === 0) {
+  var now = new Date().getTime();
+
+  ContentItems.insert({
+    title: 'Welcome to Plone',
+    name: 'front-page',
+    description: 'Congratulations! You have successfully installed Plone.',
+    typename: 'document',
+    size: '4.8 KB',
+    modified: new Date(now - 12 * 3600 * 1000),
+    objPositionInParent: 0,
+    defaultview: true
+  });
+  
+  ContentItems.insert({
+    title: 'News',
+    name: 'news',
+    description: 'Site News',
+    typename: 'folder',
+    size: '1 KB',
+    modified: new Date(now - 12 * 3600 * 1000),
+    objPositionInParent: 1,
+    defaultview: false
+  });
+  
+  ContentItems.insert({
+    title: 'Events',
+    name: 'events',
+    description: 'Site Events',
+    typename: 'folder',
+    size: '1 KB',
+    modified: new Date(now - 12 * 3600 * 1000),
+    objPositionInParent: 2,
+    defaultview: false
+  });
+
+  ContentItems.insert({
+    title: 'Users',
+    name: 'Members',
+    description: 'Site Users',
+    typename: 'folder',
+    size: '1 KB',
+    modified: new Date(now - 12 * 3600 * 1000),
+    objPositionInParent: 3,
+    defaultview: false
+  });
+}
+
+
+if (ContentTypes.find().count() === 0) {
+  ContentTypes.insert({
+    type: 'Collection',
+    title: 'Collection',
+    name: 'collection',
+    description: 'Collection of searchable information',
+  });
+
+  ContentTypes.insert({
+    type: 'Event',
+    title: 'Event',
+    name: 'event',
+    description: 'Events can be shown in calendars.',    
+  });
+
+  ContentTypes.insert({
+    type: 'File',
+    title: 'File',
+    name: 'file',
+    description: 'Lets you upload a file to the site.',
+  });
+
+  ContentTypes.insert({
+    type: 'Folder',
+    title: 'Folder',
+    name: 'folder',
+    description: '',
+  });
+
+  ContentTypes.insert({
+    type: 'Image',
+    title: 'Image',
+    name: 'image',
+    description: 'Images can be referenced in pages or displayed in an album.',
+  });
+
+  ContentTypes.insert({
+    type: 'Link',
+    title: 'Link',
+    name: 'link',
+    description: 'Links to an internal or external resource.',
+  });
+
+  ContentTypes.insert({
+    type: 'News Item',
+    title: 'News Item',
+    name: 'news-item',
+    description: 'An announcement that will show up in news listings.',
+  });
+
+  ContentTypes.insert({
+    type: 'Document',
+    title: 'Page',
+    name: 'document',
+    description: '',
+  });
+  
+  ContentTypes.insert({
+    type: 'Document',
+    title: 'Slow Success',
+    name: 'slow-success',
+    description: '',
+  });
+
+  ContentTypes.insert({
+    type: 'Document',
+    title: 'Slow Fail',
+    name: 'slow-fail',
+    description: '',
+  });
+
+}

@@ -1,0 +1,151 @@
+@-webkit-keyframes fadeOut {
+  0% {opacity: 0;}
+  10% {opacity: 1;}
+  90% {opacity: 1;}
+  100% {opacity: 0;}    
+}
+
+@keyframes fadeOut {
+  0% {opacity: 0;}
+  10% {opacity: 1;}
+  90% {opacity: 1;}
+  100% {opacity: 0;}
+}
+
+.errors {
+  position: fixed;
+  z-index: 10000;
+  padding: 10px;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  pointer-events: none;
+}
+
+.alert {
+  animation: fadeOut 2700ms ease-in 0s 1 forwards;
+  -webkit-animation: fadeOut 2700ms ease-in 0s 1 forwards;
+  -moz-animation: fadeOut 2700ms ease-in 0s 1 forwards;
+  width: 250px;
+  float: right;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  clear: both;
+  margin-bottom: 5px;
+  padding: 15px;
+  pointer-events: auto;
+}
+
+.alert-danger {
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
+}
+
+.alert-warning {
+    color: #fff;
+    background-color: #f0ad4e;
+    border-color: #eea236;
+}
+
+.alert-info {
+    color: #fff;
+    background-color: #5bc0de;
+    border-color: #46b8da;
+}
+
+.alert-success {
+    color: #fff;
+    background-color: #5cb85c;
+    border-color: #4cae4c;
+}
+
+.alert-primary {
+    color: #fff;
+    background-color: #337ab7;
+    border-color: #2e6da4;    
+}
+
+.alert-default {
+    color: #333;
+    background-color: #fff;
+    border-color: #ccc;    
+}
+
+.close {
+    float: right;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 20px;
+    color: #000;
+    text-shadow: 0 1px 0 #fff;
+    opacity: .2;
+}
+
+button.close {
+    background: 0 0;
+    border: 0;
+    cursor: pointer;
+    padding: 0;
+}
+
+
+#portal-sitetools {
+float: right;
+background: #e3e3e3;
+position: relative;
+z-index: 3; /* */
+top: 0;
+right: 0;
+padding: 0.25em 0.5em;
+font-size: 80%;
+border-bottom-right-radius: 0.5em;
+border-bottom-left-radius: 0.5em;
+-webkit-border-bottom-right-radius: 0.5em;
+-webkit-border-bottom-left-radius: 0.5em;
+-moz-border-radius-bottomleft: 0.5em;
+-moz-border-radius-bottomright: 0.5em;
+}
+
+#portal-sitetools #anon-personalbar a {
+float: left;
+margin: 0 0.5em;
+}
+
+#portal-sitetools dl {
+}
+#portal-sitetools dt {
+font-weight: normal;
+}
+#portal-sitetools dt.actionMenuHeader a:after {
+content: " ▼";
+}
+#portal-sitetools dd {
+right: 0;
+padding-top: 0.5em;
+}
+#portal-sitetools dd {
+background: #e3e3e3;
+padding-bottom: 0.5em;
+}
+#portal-sitetools dd a {
+line-height: 2em;
+padding: 0 0.75em;
+}
+#portal-sitetools dd a:hover {
+background: #205c90;
+color: White;
+}
+
+@media print {
+  #portal-sitetools {
+    display: none;
+  }
+}
+
+@media handheld, screen and (max-device-width: 480px) {
+  #portal-sitetools {
+    margin-bottom: 1em;
+  }
+}

@@ -1,0 +1,121 @@
+<template name="layout">
+  <div id="portal-columns" class="row">
+      <div id="portal-column-content" class="cell width-full position-0">
+          <div id="viewlet-above-content">
+              <div id="portal-breadcrumbs">
+                  <span id="breadcrumbs-you-are-here">You are here:</span>
+                  <span id="breadcrumbs-home">
+                      <a href="http://localhost:8081/sunburst">Home</a>
+                  </span>
+              </div>
+          </div>
+          <div class="documentEditable">
+              <div id="edit-bar">
+                  <p class="hiddenStructure">Views</p>
+                  <ul class="contentViews" id="content-views">
+                      <li id="contentview-folderContents" class="selected">
+                          <a href="{{siteroot}}folder_contents">Contents</a>
+                      </li>
+                      <li id="contentview-view" class="plain">
+                          <a href="http://localhost:8081/sunburst">View</a>
+                      </li>
+                      <li id="contentview-local_roles" class="plain">
+                          <a href="{{siteroot}}@@sharing">Sharing</a>
+                      </li>
+                  </ul>
+                  <div class="contentActions">
+                      <ul id="contentActionMenus">
+                          <li>
+                              <dl class="actionMenu deactivated" id="plone-contentmenu-factories">
+                                  <dt class="actionMenuHeader label-">
+                                      <a href="{{siteroot}}folder_factories" title="Add new items inside this item">
+                                          <span>Add new…</span>
+                                          <span class="arrowDownAlternative">&#9660;</span>
+                                      </a>
+                                  </dt>
+                                  <dd class="actionMenuContent">
+                                      {{> actionMenuContent}}
+                                  </dd>
+                              </dl>
+                          </li>
+                      </ul>
+                  </div>
+              </div>
+              <dl class="portalMessage info" id="kssPortalMessage" style="display:none">
+                  <dt>Info</dt>
+                  <dd></dd>
+              </dl>
+              <div id="content">
+                  <div id="viewlet-above-content-title"></div>
+                  <h1 class="documentFirstHeading"> 
+                    Site
+                  </h1>
+                  <div id="viewlet-below-content-title">
+                      <div class="documentByLine" id="plone-document-byline">
+                          <span class="documentModified">
+                              <span>
+                                  last modified
+                              </span> Apr 10, 2015 12:15 PM
+                          </span>
+                          <span class="contentHistory" id="content-history">
+                          —
+                              <a href="{{siteroot}}@@historyview">History</a>
+                          </span>
+                      </div>
+                  </div>
+                  <div id="viewlet-above-content-body"></div>
+                  <div id="content-core">
+                      <form name="folderContentsForm" method="post" action="http://localhost:8081/sunburst" class="kssattr-serveraction-foldercontents_update_table">
+                          <div id="folderlisting-main-table">
+                              <input type="hidden" name="sort_on" value="getObjPositionInParent" />
+                              <input type="hidden" name="pagenumber" value="1" />
+                              <input type="hidden" name="pagesize" value="20" />
+                              <input type="hidden" name="show_all" value="False" />
+                              <input type="hidden" name="orig_template" value="folder_contents" />
+                              <div class="visualClear" id="clear-space-before-navigation">
+                                  <!-- -->
+                              </div>
+                              <!-- Navigation -->
+                              <table class="listing" id="listing-table" summary="Content listing">
+                                  <thead>
+                                      <tr>
+                                          <th colspan="6" class="nosort">Select: <a id="foldercontents-selectall" href="{{siteroot}}folder_contents?pagenumber=1&amp;pagesize=20&amp;select=screen">All</a></th>
+                                      </tr>
+                                      <tr>
+                                          <th class="nosort column" id="foldercontents-order-column">
+                                          </th>
+                                          <th class="nosort" id="foldercontents-select-column">&nbsp;</th>
+                                          <th class="nosort column" id="foldercontents-title-column">&nbsp;Title&nbsp;</th>
+                                          <th class="nosort column" id="foldercontents-size-column">&nbsp;Size&nbsp;</th>
+                                          <th class="nosort column" id="foldercontents-modified-column">&nbsp;Modified&nbsp;</th>
+                                          <th class="nosort column" id="foldercontents-status-column">&nbsp;State&nbsp;</th>
+                                      </tr>
+                                  </thead>
+                                  <tbody>
+                                      {{> listingtablerows}}
+                                  </tbody>
+                              </table>
+                              <!-- Navigation -->
+                              <input class="context" type="submit" name="folder_copy:method" value="Copy" />
+                              <input class="context" type="submit" name="folder_cut:method" value="Cut" />
+                              <input class="context" type="submit" name="folder_rename_form:method" value="Rename" />
+                              <input class="context" type="submit" name="folder_delete:method" value="Delete" />
+                              <input class="context" type="submit" name="content_status_history:method" value="Change State" />
+                          </div>
+                          <input type="hidden" name="_authenticator" value="4db30233c0e495c06bdb5162578bc6b5d6117849" />
+                      </form>
+                  </div>
+                  <div id="viewlet-below-content-body">
+                      <div class="visualClear">
+                          <!-- -->
+                      </div>
+                      <div class="documentActions">
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div id="viewlet-below-content">
+          </div>
+      </div>
+  </div>
+</template>

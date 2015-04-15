@@ -1,0 +1,113 @@
+<template name="globalnav">
+    <p class="hiddenStructure">Navigation</p>
+
+    <ul id="portal-globalnav">
+        <li id="portaltab-index_html" class="selected"><a href="{{siteroot}}" title="">Home</a></li>
+
+        {{#each contentItems}}
+            {{#unless defaultview}}
+                {{> menuItem}}
+            {{/unless}}
+        {{/each}}
+    </ul>
+
+</template>
+
+
+<template name="menuItem">
+    <li id="portaltab-{{name}}" class="plain"><a href="{{siteroot}}{{name}}" title="">{{title}}</a></li>
+</template>
+
+
+<template name="listingtablerows">
+    {{#each contentItems}}
+        {{> contentRow}}
+    {{/each}}
+</template>
+
+
+<template name="contentRow">
+    <tr class="draggable {{evenodd}}" id="folder-contents-item-{{name}}">
+
+      <td class="draggable draggingHook" style="cursor: ns-resize;">⣿
+      </td>
+      <td class="notDraggable">
+        <input type="checkbox" class="noborder" name="paths:list" id="cb_{{name}}" value="{{name}}" alt="Select {{title}}" title="Select {{title}}" />
+        <input type="hidden" name="selected_obj_paths:list" value="{{name}}" />
+        <label class="hiddenStructure" for="cb_{{name}}">{{title}}</label>
+      </td>
+      <td>
+
+          <a href="{{siteroot}}{{name}}" class=" state-published contenttype-{{typename}}" title="{{type}}: {{description}}">
+            {{#if defaultview}}
+                <strong>{{title}}</strong>
+                <span class="defaultView" title="Default view for this folder" style="color: #f00;">
+                  &#x25a0;
+                </span>
+            {{/if}}
+            {{#unless defaultview}}
+                {{title}}
+            {{/unless}}
+          </a>
+
+        
+      </td>
+
+      <td>
+        
+        <span class="state-published">{{size}}</span>
+      </td>
+      <td class="state-published sortabledata-{{modifiedClass}}">{{modifiedText}}</td>
+      <td>
+        <span class="state-published">Published</span>
+        
+      </td>
+    </tr>
+
+</template>
+
+
+<template name="actionMenuContent">
+  <ul>
+    {{#each contentTypes}}
+        {{> addItem}}
+    {{/each}}
+  </ul>
+</template>
+
+
+<template name="addItem">
+  <li>
+    <a href="{{siteroot}}createObject?type_name={{type}}" class="contenttype-{{name}}" id="{{name}}" title="{{description}}">
+        
+        <span class="subMenuTitle">{{title}}</span>
+    </a>
+    
+  </li>
+</template>
+
+
+<template name="errors">
+    <div class="errors">
+        {{#each errors}}
+            {{> error}}
+        {{/each}}
+        {{#each notifications}}
+            {{> notification}}
+        {{/each}}
+    </div>
+</template>
+
+<template name="error">
+    <div class="alert alert-info" role="alert">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        {{message}}
+    </div>
+</template>
+
+<template name="notification">
+    <div class="alert alert-warning" role="alert">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        {{message}}
+    </div>
+</template>
