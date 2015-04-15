@@ -1,20 +1,7 @@
 Template.globalnav.helpers({
-    contentItems: function() {
-        return ContentItems.find();
-    },
     isFolderish: function() {
         return this.typename === 'folder';
     }
-});
-
-Template.listingtablerows.helpers({
-    contentItems: function() {
-        var items = ContentItems.find().map(function(doc, index, cursor) {
-            var i = _.extend(doc, {index: index, evenodd: (index%2)?'odd':'even'});
-            return i;
-        });
-        return items;
-    },
 });
 
 Template.contentRow.helpers({
