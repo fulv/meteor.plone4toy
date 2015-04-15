@@ -3,6 +3,7 @@ Meteor.publish('contentitems', function(options) {
 		sort: Object,
 		limit: Number
 	});
+	Counts.publish(this, 'contentcount', ContentItems.find(), { noReady: true });
 	return ContentItems.find({}, options);
 });
 
