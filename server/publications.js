@@ -9,4 +9,8 @@ Meteor.publish('contentitems', function(options) {
 
 Meteor.publish('contenttypes', function(options) {
 	return ContentTypes.find({});
-})
+});
+
+Meteor.publish('notifications', function() {
+	return Notifications.find({});
+});

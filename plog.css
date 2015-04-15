@@ -138,6 +138,12 @@ background: #205c90;
 color: White;
 }
 
+div.listingBar span.nowShowing {
+  display: inline-block;
+  padding: 0.25em 0.5em;
+  border: 0.1em solid #ccc;
+}
+
 @media print {
   #portal-sitetools {
     display: none;
