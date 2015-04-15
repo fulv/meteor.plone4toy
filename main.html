@@ -44,6 +44,11 @@
     <p class="hiddenStructure">Personal tools</p>
 
     <dl class="actionMenu deactivated" id="portal-personaltools">
+        {{> loginButtons align="right"}}
+    </dl>
+
+    {{#if currentUser}}
+    <dl class="actionMenu deactivated" id="portal-personaltools">
       
       <dt class="actionMenuHeader">
         <a id="user-name" href="{{siteroot}}useractions">admin</a>
@@ -66,6 +71,7 @@
       </dd>
       
     </dl>
+    {{/if}}
 
     <dl class="actionMenu deactivated" id="portal-sitetools">
 

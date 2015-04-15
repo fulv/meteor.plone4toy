@@ -11,3 +11,6 @@ peerlibrary:dimsum
 iron:router
 sacha:spin
 tmeasday:publish-counts
+accounts-password
+accounts-ui
+accounts-github

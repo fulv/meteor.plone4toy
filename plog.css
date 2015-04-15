@@ -144,6 +144,12 @@ div.listingBar span.nowShowing {
   border: 0.1em solid #ccc;
 }
 
+.accounts-dialog input[type=text],
+.accounts-dialog input[type=email],
+.accounts-dialog input[type=password] {
+  width: auto;
+}
+
 @media print {
   #portal-sitetools {
     display: none;

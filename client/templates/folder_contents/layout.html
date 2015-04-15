@@ -10,6 +10,7 @@
               </div>
           </div>
           <div class="documentEditable">
+              {{#if currentUser}}
               <div id="edit-bar">
                   <p class="hiddenStructure">Views</p>
                   <ul class="contentViews" id="content-views">
@@ -41,6 +42,7 @@
                       </ul>
                   </div>
               </div>
+              {{/if}}
               <dl class="portalMessage info" id="kssPortalMessage" style="display:none">
                   <dt>Info</dt>
                   <dd></dd>
@@ -177,11 +179,13 @@
                                   <!-- Link to last -->
 
                               </div>
+                              {{#if currentUser}}
                               <input class="context" type="submit" name="folder_copy:method" value="Copy" />
                               <input class="context" type="submit" name="folder_cut:method" value="Cut" />
                               <input class="context" type="submit" name="folder_rename_form:method" value="Rename" />
                               <input class="context" type="submit" name="folder_delete:method" value="Delete" />
                               <input class="context" type="submit" name="content_status_history:method" value="Change State" />
+                              {{/if}}
                           </div>
                           <input type="hidden" name="_authenticator" value="4db30233c0e495c06bdb5162578bc6b5d6117849" />
                       </form>
