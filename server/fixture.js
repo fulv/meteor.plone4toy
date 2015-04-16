@@ -9,7 +9,8 @@ if (ContentItems.find().count() === 0) {
     size: '4.8 KB',
     modified: new Date(now - 12 * 3600 * 1000),
     objPositionInParent: 0,
-    defaultview: true
+    defaultview: true,
+    author: 'admin'
   });
   
   ContentItems.insert({
@@ -20,7 +21,8 @@ if (ContentItems.find().count() === 0) {
     size: '1 KB',
     modified: new Date(now - 12 * 3600 * 1000),
     objPositionInParent: 1,
-    defaultview: false
+    defaultview: false,
+    author: 'admin'
   });
   
   ContentItems.insert({
@@ -31,7 +33,8 @@ if (ContentItems.find().count() === 0) {
     size: '1 KB',
     modified: new Date(now - 12 * 3600 * 1000),
     objPositionInParent: 2,
-    defaultview: false
+    defaultview: false,
+    author: 'admin'
   });
 
   ContentItems.insert({
@@ -42,7 +45,8 @@ if (ContentItems.find().count() === 0) {
     size: '1 KB',
     modified: new Date(now - 12 * 3600 * 1000),
     objPositionInParent: 3,
-    defaultview: false
+    defaultview: false,
+    author: 'admin'
   });
 }
 

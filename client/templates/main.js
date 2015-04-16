@@ -45,6 +45,7 @@ Template.addItem.events({
             name: title.toLowerCase().split(' ').join('-'),
             description: text,
             typename: type,
+            author: Meteor.user().username
         };
 
         Meteor.call('itemCreate', item, function(error, result) {
