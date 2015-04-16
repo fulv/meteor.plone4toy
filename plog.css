@@ -144,10 +144,39 @@ div.listingBar span.nowShowing {
   border: 0.1em solid #ccc;
 }
 
+.accounts-dialog {
+}
+
+.accounts-dialog div.login-form.login-password-form div {
+}
+
+.accounts-dialog div.login-form.login-password-form div label,
+.accounts-dialog div.login-form.login-password-form div input {
+  display: table-cell;
+}
+
 .accounts-dialog input[type=text],
 .accounts-dialog input[type=email],
 .accounts-dialog input[type=password] {
   width: auto;
+}
+
+#login-buttons {
+  line-height: inherit;
+}
+
+#login-buttons a, .accounts-dialog a {
+  color: #205c90;
+  text-decoration: none;
+}
+
+#login-buttons.login-buttons-dropdown-align-right .login-close-text {
+  font-size: 80%;
+}
+
+#portal-personaltools dt.actionMenuHeader a:after,
+#portal-sitetools dt.actionMenuHeader a:after {
+  content: "  ▾";
 }
 
 @media print {
