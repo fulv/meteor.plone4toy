@@ -22,10 +22,6 @@ Template.actionMenuContent.helpers({
     }
 });
 
-Template.actionMenuContent.rendered = function() {
-    jQuery(initializeMenus);
-};
-
 Template.addItem.events({
     'click a': function(e) {
         e.preventDefault();
@@ -45,7 +41,6 @@ Template.addItem.events({
             name: title.toLowerCase().split(' ').join('-'),
             description: text,
             typename: type,
-            author: Meteor.user().username
         };
 
         Meteor.call('itemCreate', item, function(error, result) {
@@ -88,3 +83,28 @@ Template.notification.rendered = function() {
         Notifications.remove(notification._id);
     }, 3000);
 };
+
+Template.SiteStats.helpers({
+    usersCount: function() {
+        console.log('helper');
+        return UsersCount.findOne().count;
+    },
+    activeState: function() {
+        if (Session.get('SiteStats.active')) {
+            return 'activated';
+        } else {
+            return 'deactivated';
+        }
+    }
+});
+
+Template.SiteStats.events({
+    'click': function(e, t) {
+        e.preventDefault();
+
+        Session.set('SiteStats.active', true);
+    },
+    'mouseleave dl': function(e, t) {
+        Session.set('SiteStats.active', false);
+    }
+});

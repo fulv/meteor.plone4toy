@@ -73,29 +73,7 @@
     </dl>
     {{/if}}
 
-    <dl class="actionMenu deactivated" id="portal-sitetools">
-
-      <dt class="actionMenuHeader">
-        <a id="user-name" href="{{siteroot}}useractions">{{getPublishedCount 'contentcount'}}/100 &ndash; More Stats</a>
-      </dt>
-      <dd class="actionMenuContent">
-        <ul>
-            <li id="personaltools-dashboard">
-                <a href="{{siteroot}}dashboard">Dashboard</a>
-            </li>
-            <li id="personaltools-preferences">
-                <a href="{{siteroot}}@@personal-preferences">Preferences</a>
-            </li>
-            <li id="personaltools-plone_setup">
-                <a href="{{siteroot}}@@overview-controlpanel">Site Setup</a>
-            </li>
-            <li id="personaltools-logout">
-                <a href="{{siteroot}}logout">Log out</a>
-            </li>
-        </ul>
-      </dd>
-      
-    </dl>
+    {{> SiteStats}}
 
 
 
