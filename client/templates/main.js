@@ -90,21 +90,17 @@ Template.SiteStats.helpers({
         return UsersCount.findOne().count;
     },
     activeState: function() {
-        if (Session.get('SiteStats.active')) {
-            return 'activated';
-        } else {
-            return 'deactivated';
-        }
-    }
+        return Session.get('SiteStats.active');
+    },
 });
 
 Template.SiteStats.events({
-    'click': function(e, t) {
+    'click': function(e) {
         e.preventDefault();
 
-        Session.set('SiteStats.active', true);
+        Session.set('SiteStats.active', 'activated');
     },
-    'mouseleave dl': function(e, t) {
-        Session.set('SiteStats.active', false);
+    'mouseleave dl': function(e) {
+        Session.set('SiteStats.active', 'deactivated');
     }
 });
