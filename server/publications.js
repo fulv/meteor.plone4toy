@@ -3,7 +3,13 @@ Meteor.publish('contentitems', function(options) {
         sort: Object,
         limit: Number
     });
-    Counts.publish(this, 'contentcount', ContentItems.find(), { noReady: true });
+    var user = Meteor.users.findOne(this.userId);
+    Counts.publish(this, 'contentcount', 
+        ContentItems.find(), { noReady: true });
+    if (user) {
+        Counts.publish(this, 'owncontentcount', 
+            ContentItems.find({author: user.username}), { noReady: true});
+    }
     return ContentItems.find({}, options);
 });
 
