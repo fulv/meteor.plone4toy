@@ -86,12 +86,14 @@ Template.notification.rendered = function() {
 
 Template.SiteStats.helpers({
     usersCount: function() {
-        console.log('helper');
         return UsersCount.findOne().count;
     },
     activeState: function() {
         return Session.get('SiteStats.active');
     },
+    resets: function() {
+        return Session.get('SiteStats.resets');
+    }
 });
 
 Template.SiteStats.events({

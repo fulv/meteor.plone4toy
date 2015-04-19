@@ -20,3 +20,7 @@ Meteor.publish('contenttypes', function(options) {
 Meteor.publish('notifications', function() {
     return Notifications.find({});
 });
+
+Meteor.publish('registry', function() {
+    return Registry.find({});
+});

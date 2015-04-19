@@ -123,3 +123,10 @@ if (ContentTypes.find().count() === 0) {
   });
 
 }
+
+if (Registry.find().count() === 0) {
+  Registry.insert({
+    resets: 0
+  });
+}
+
