@@ -86,7 +86,11 @@ Template.notification.rendered = function() {
 
 Template.SiteStats.helpers({
     usersCount: function() {
-        return UsersCount.findOne().count;
+        if (usersCountSub.ready()) {
+            return UsersCount.findOne().count;
+        } else {
+            return 0;
+        }
     },
     activeState: function() {
         return Session.get('SiteStats.active');
