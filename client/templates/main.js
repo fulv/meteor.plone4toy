@@ -92,6 +92,7 @@ Template.SiteStats.helpers({
             return UsersCount.findOne().count;
         }
     },
+    max_items:  function() { return max_items; },
     activeState: function() {
         return Session.get('SiteStats.active');
     },
