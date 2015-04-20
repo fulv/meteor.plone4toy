@@ -86,10 +86,10 @@ Template.notification.rendered = function() {
 
 Template.SiteStats.helpers({
     usersCount: function() {
-        if (usersCountSub.ready()) {
+        ready = Meteor.subscribe('usersCount').ready();
+
+        if (ready) {
             return UsersCount.findOne().count;
-        } else {
-            return 0;
         }
     },
     activeState: function() {
