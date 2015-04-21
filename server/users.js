@@ -7,10 +7,19 @@ Accounts.onCreateUser(function(options, user) {
     user.profile.github.username = user.services.github.username;
     user.username = user.services.github.username;
   }
+  user.lifetimeCreatedItems = 0;
  
   return user;
 });
 
+Meteor.publish("userData", function () {
+  if (this.userId) {
+    return Meteor.users.find({_id: this.userId},
+                             {fields: {'lifetimeCreatedItems': 1}});
+  } else {
+    this.ready();
+  }
+});
 
 Meteor.publish('usersCount', function() {
     var self = this;
