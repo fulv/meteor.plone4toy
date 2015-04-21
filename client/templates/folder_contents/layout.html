@@ -5,7 +5,7 @@
               <div id="portal-breadcrumbs">
                   <span id="breadcrumbs-you-are-here">You are here:</span>
                   <span id="breadcrumbs-home">
-                      <a href="http://localhost:8081/sunburst">Home</a>
+                      <a href="{{siteroot}}">Home</a>
                   </span>
               </div>
           </div>
@@ -18,7 +18,7 @@
                           <a href="{{siteroot}}folder_contents">Contents</a>
                       </li>
                       <li id="contentview-view" class="plain">
-                          <a href="http://localhost:8081/sunburst">View</a>
+                          <a href="{{siteroot}}">View</a>
                       </li>
                       <li id="contentview-local_roles" class="plain">
                           <a href="{{siteroot}}@@sharing">Sharing</a>
@@ -67,7 +67,7 @@
                   </div>
                   <div id="viewlet-above-content-body"></div>
                   <div id="content-core">
-                      <form name="folderContentsForm" method="post" action="http://localhost:8081/sunburst" class="kssattr-serveraction-foldercontents_update_table">
+                      <form name="folderContentsForm" method="post" action="{{siteroot}}" class="kssattr-serveraction-foldercontents_update_table">
                           <div id="folderlisting-main-table">
                               <input type="hidden" name="sort_on" value="getObjPositionInParent" />
                               <input type="hidden" name="pagenumber" value="1" />
@@ -108,10 +108,10 @@
 
                                   <!-- Pagelist with links to next pages for quick navigation -->
 
-<!--                                     <a href="http://localhost:8081/sunburst/folder_contents?pagenumber:int=2&amp;pagesize=3">2</a>
+<!--                                     <a href="{{siteroot}}/folder_contents?pagenumber:int=2&amp;pagesize=3">2</a>
 
 
-                                    <a href="http://localhost:8081/sunburst/folder_contents?pagenumber:int=3&amp;pagesize=3">3</a>
+                                    <a href="{{siteroot}}/folder_contents?pagenumber:int=3&amp;pagesize=3">3</a>
  -->
 
                                   <!-- Link to last -->
@@ -171,10 +171,10 @@
 
                                   <!-- Pagelist with links to next pages for quick navigation -->
 
-<!--                                     <a href="http://localhost:8081/sunburst/folder_contents?pagenumber:int=2&amp;pagesize=3">2</a>
+<!--                                     <a href="{{siteroot}}/folder_contents?pagenumber:int=2&amp;pagesize=3">2</a>
 
 
-                                    <a href="http://localhost:8081/sunburst/folder_contents?pagenumber:int=3&amp;pagesize=3">3</a>
+                                    <a href="{{siteroot}}/folder_contents?pagenumber:int=3&amp;pagesize=3">3</a>
  -->
 
                                   <!-- Link to last -->
