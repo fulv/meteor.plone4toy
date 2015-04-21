@@ -2,12 +2,7 @@
   <div id="portal-columns" class="row">
       <div id="portal-column-content" class="cell width-full position-0">
           <div id="viewlet-above-content">
-              <div id="portal-breadcrumbs">
-                  <span id="breadcrumbs-you-are-here">You are here:</span>
-                  <span id="breadcrumbs-home">
-                      <a href="{{siteroot}}">Home</a>
-                  </span>
-              </div>
+              {{> breadcrumbs}}
           </div>
           <div class="documentEditable">
               {{#if currentUser}}

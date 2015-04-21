@@ -107,7 +107,7 @@ Template.SiteStats.helpers({
 });
 
 Template.SiteStats.events({
-    'click': function(e) {
+    'click .actionMenuHeader': function(e) {
         e.preventDefault();
 
         Session.set('SiteStats.active', 'activated');
@@ -115,4 +115,13 @@ Template.SiteStats.events({
     'mouseleave dl': function(e) {
         Session.set('SiteStats.active', 'deactivated');
     }
+});
+
+Template.resetRow.helpers({
+    datetimeText: function() {
+        return moment(this.datetime).format('MMM DD, YYYY h:mm A');
+    },
+    datetimeClass: function() {
+        return moment(this.datetime).format('YYYY-MM-DD-hh-mm-ss');
+    },
 });

@@ -130,10 +130,78 @@
           </li>
           {{/if}}
           <li id="sitetools-resets">
-              <a href="{{siteroot}}resets">{{resets}} database resets</a>
+              <a href="{{pathFor 'resets'}}">{{resets}} database resets</a>
           </li>
       </ul>
     </dd>
 
   </dl>
+</template>
+
+<template name="resets">
+  <div id="portal-columns" class="row">
+      <div id="portal-column-content" class="cell width-full position-0">
+          <div id="viewlet-above-content">
+              {{> breadcrumbs}}
+          </div>
+          <div id="content">
+              <div id="viewlet-above-content-title"></div>
+              <h1 class="documentFirstHeading"> 
+                History of content resets
+              </h1>
+              <div id="viewlet-below-content-title">
+              </div>
+              <div id="viewlet-above-content-body"></div>
+              <div id="content-core">
+                  <div id="folderlisting-main-table">
+                      <table class="listing" id="listing-table" summary="Content listing">
+                          <thead>
+                              <tr>
+                                  <th colspan="2" class="nosort">&nbsp;</th>
+                              </tr>
+                              <tr>
+                                  <th class="nosort column" id="resets-datetime-column">&nbsp;Date&nbsp;&amp;&nbsp;Time&nbsp;</th>
+                                  <th class="nosort column" id="resets-user-column">&nbsp;User&nbsp;</th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                              {{> resetstablerows}}
+                          </tbody>
+                      </table>
+                  </div>
+              </div>
+              <div id="viewlet-below-content-body">
+                  <div class="visualClear">
+                      <!-- -->
+                  </div>
+                  <div class="documentActions">
+                  </div>
+              </div>
+          </div>
+          <div id="viewlet-below-content">
+          </div>
+      </div>
+  </div>
+</template>
+
+<template name="resetstablerows">
+    {{#each resetInstances}}
+        {{> resetRow}}
+    {{/each}}
+</template>
+
+<template name="resetRow">
+    <tr class="draggable {{evenodd}}" id="resets-item-{{datetimeClass}}">
+      <td class="state-published sortabledata-{{datetimeClass}}">{{datetimeText}}</td>
+      <td class="state-published sortabledata-{{author}}">{{author}}</td>
+    </tr>
+</template>
+
+<template name="breadcrumbs">
+  <div id="portal-breadcrumbs">
+      <span id="breadcrumbs-you-are-here">You are here:</span>
+      <span id="breadcrumbs-home">
+          <a href="{{siteroot}}">Home</a>
+      </span>
+  </div>
 </template>
