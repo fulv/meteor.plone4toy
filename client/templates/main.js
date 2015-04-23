@@ -103,6 +103,15 @@ Template.SiteStats.helpers({
     },
     lifetimeCreatedItems: function() {
         return Meteor.user().lifetimeCreatedItems;
+    },
+    connections: function() {
+        ready = Meteor.subscribe('connections').ready();
+
+        if (ready) {
+            var connections = Connections.find();
+            console.log(connections.fetch());
+            return Connections.find().count();
+        }
     }
 });
 
@@ -118,6 +127,15 @@ Template.SiteStats.events({
 });
 
 Template.resetRow.helpers({
+    datetimeText: function() {
+        return moment(this.datetime).format('MMM DD, YYYY h:mm A');
+    },
+    datetimeClass: function() {
+        return moment(this.datetime).format('YYYY-MM-DD-hh-mm-ss');
+    },
+});
+
+Template.connectionRow.helpers({
     datetimeText: function() {
         return moment(this.datetime).format('MMM DD, YYYY h:mm A');
     },

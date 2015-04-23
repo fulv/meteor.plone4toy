@@ -8,3 +8,4 @@ Meteor.subscribe('registry', {
     }
 });
 
+Meteor.subscribe('connections');

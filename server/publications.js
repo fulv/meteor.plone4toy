@@ -24,3 +24,7 @@ Meteor.publish('notifications', function() {
 Meteor.publish('registry', function() {
     return Registry.find({});
 });
+
+Meteor.publish('connections', function() {
+    return Connections.find({});
+});
