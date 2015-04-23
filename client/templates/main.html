@@ -6,7 +6,7 @@
           <a href="{{siteroot}}" title="">Home</a>
         </li>
 
-        {{#each contentItems}}
+        {{#each navItems}}
             {{#unless defaultview}}
                 {{> menuItem}}
             {{/unless}}
@@ -24,7 +24,7 @@
 
 
 <template name="listingtablerows">
-    {{#each contentItems}}
+    {{#each items}}
         {{> contentRow}}
     {{/each}}
 </template>
@@ -178,6 +178,34 @@
               <div id="viewlet-above-content-body"></div>
               <div id="content-core">
                   <div id="folderlisting-main-table">
+                      <!-- Navigation -->
+                      <div class="listingBar">
+
+                        {{#if nextPath}}
+                          <span class="next">
+                              <a href="{{nextPath}}">
+
+                                     Next
+                                     {{batchIncrement}}
+                                     items
+
+                                 &raquo;
+                              </a>
+                          </span>
+                        {{else}}
+                          {{#unless ready}}
+                            {{>spinner}}
+                          {{/unless}}
+                        {{/if}}
+
+                          <!-- Link to first -->
+
+                          <!-- Pagelist with links to previous pages for quick navigation -->
+
+                          <!-- Current page -->
+
+                              <span class="nowShowing">Now showing first {{batchSize}} items</span>
+                      </div>
                       <table class="listing" id="listing-table"
                              summary="Content listing">
                           <thead>
@@ -275,7 +303,7 @@
 </template>
 
 <template name="resetstablerows">
-    {{#each resetInstances}}
+    {{#each items}}
         {{> resetRow}}
     {{/each}}
 </template>
