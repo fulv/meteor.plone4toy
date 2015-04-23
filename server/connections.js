@@ -18,11 +18,6 @@ Meteor.onConnection(function(conn) {
         c_id = Connections.insert(connection);
     }
 
-    var reg_id = Registry.findOne()._id;
-    Registry.update(reg_id, { 
-        $addToSet: {connections: connection}
-    });
-
     conn.onClose(function() {
         console.log("disconnect:" + ip);
         var logged_connection = Connections.findOne(c_id);
@@ -33,5 +28,10 @@ Meteor.onConnection(function(conn) {
             Connections.remove( c_id );
         }
     });
+});
 
+Meteor.startup(function() {
+    Connections.find().map(function(conn, index, cursor) {
+        Connections.remove(conn);
+    });
 });

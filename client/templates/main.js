@@ -109,7 +109,6 @@ Template.SiteStats.helpers({
 
         if (ready) {
             var connections = Connections.find();
-            console.log(connections.fetch());
             return Connections.find().count();
         }
     }
