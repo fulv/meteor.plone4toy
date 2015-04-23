@@ -1,3 +1,11 @@
+Template.registerHelper("dateTimeText", function(dateTime) {
+    return moment(dateTime).format('MMM DD, YYYY h:mm A');
+});
+
+Template.registerHelper("dateTimeClass", function(dateTime) {
+    return moment(dateTime).format('YYYY-MM-DD-hh-mm-ss');
+});
+
 Template.globalnav.helpers({
     isFolderish: function() {
         return this.typename === 'folder';
@@ -5,12 +13,6 @@ Template.globalnav.helpers({
 });
 
 Template.contentRow.helpers({
-    modifiedText: function() {
-        return moment(this.modified).format('MMM DD, YYYY h:mm A');
-    },
-    modifiedClass: function() {
-        return moment(this.modified).format('YYYY-MM-DD-hh-mm-ss');
-    },
     type: function() {
         return ContentTypes.findOne({name: this.typename}).title;
     }
@@ -123,22 +125,4 @@ Template.SiteStats.events({
     'mouseleave dl': function(e) {
         Session.set('SiteStats.active', 'deactivated');
     }
-});
-
-Template.resetRow.helpers({
-    datetimeText: function() {
-        return moment(this.datetime).format('MMM DD, YYYY h:mm A');
-    },
-    datetimeClass: function() {
-        return moment(this.datetime).format('YYYY-MM-DD-hh-mm-ss');
-    },
-});
-
-Template.connectionRow.helpers({
-    datetimeText: function() {
-        return moment(this.datetime).format('MMM DD, YYYY h:mm A');
-    },
-    datetimeClass: function() {
-        return moment(this.datetime).format('YYYY-MM-DD-hh-mm-ss');
-    },
 });

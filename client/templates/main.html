@@ -57,7 +57,7 @@
         
         <span class="state-published">{{size}}</span>
       </td>
-      <td class="state-published sortabledata-{{modifiedClass}}">{{modifiedText}}</td>
+      <td class="state-published sortabledata-{{dateTimeClass modified}}">{{dateTimeText modified}}</td>
       <td>
         <span class="state-published">Published</span>
         
@@ -247,16 +247,16 @@
 </template>
 
 <template name="resetRow">
-    <tr class="draggable {{evenodd}}" id="resets-item-{{datetimeClass}}">
-      <td class="state-published sortabledata-{{datetimeClass}}">{{datetimeText}}</td>
+    <tr class="draggable {{evenodd}}" id="resets-item-{{dateTimeClass datetime}}">
+      <td class="state-published sortabledata-{{dateTimeClass datetime}}">{{dateTimeText datetime}}</td>
       <td class="state-published sortabledata-{{author}}">{{author}}</td>
     </tr>
 </template>
 
 
 <template name="connectionRow">
-    <tr class="draggable {{evenodd}}" id="connections-item-{{datetimeClass}}">
-      <td class="state-published sortabledata-{{datetimeClass}}">{{datetimeText}}</td>
+    <tr class="draggable {{evenodd}}" id="connections-item-{{dateTimeClass datetime}}">
+      <td class="state-published sortabledata-{{dateTimeClass datetime}}">{{dateTimeText datetime}}</td>
       <td class="state-published sortabledata-{{ip}}">{{ip}}</td>
       <td class="state-published sortabledata-{{count}}">{{count}}</td>
     </tr>
