@@ -18,6 +18,33 @@ Template.contentRow.helpers({
     }
 });
 
+Template.ActionMenu.helpers({
+    activeState: function() {
+        return Session.get('ActionMenu.active');
+    }
+});
+
+Template.ActionMenu.events({
+    'click .actionMenuHeader': function(e) {
+        e.preventDefault();
+
+        Session.set('ActionMenu.active', 'activated');
+    },
+    'click dl.activated .actionMenuHeader': function(e) {
+        e.preventDefault();
+
+        Session.set('ActionMenu.active', 'deactivated');
+    },
+    'click dd': function(e) {
+        e.preventDefault();
+
+        Session.set('ActionMenu.active', 'deactivated');
+    },
+    'mouseleave dl': function(e) {
+        Session.set('ActionMenu.active', 'deactivated');
+    }
+});
+
 Template.actionMenuContent.helpers({
     contentTypes: function() {
         return ContentTypes.find();
@@ -121,6 +148,14 @@ Template.SiteStats.events({
         e.preventDefault();
 
         Session.set('SiteStats.active', 'activated');
+    },
+    'click dl.activated .actionMenuHeader': function(e) {
+        e.preventDefault();
+
+        Session.set('SiteStats.active', 'deactivated');
+    },
+    'click dd': function(e) {
+        Session.set('SiteStats.active', 'deactivated');
     },
     'mouseleave dl': function(e) {
         Session.set('SiteStats.active', 'deactivated');
