@@ -1,7 +1,5 @@
 Meteor.onConnection(function(conn) {
 
-    console.log(conn.id);
-
     var c_id;
     var ip = conn.clientAddress;
     var connection = {
@@ -19,9 +17,7 @@ Meteor.onConnection(function(conn) {
     }
 
     conn.onClose(function() {
-        console.log("disconnect:" + ip);
         var logged_connection = Connections.findOne(c_id);
-        console.log("count:" + logged_connection.count);
         if (logged_connection.count > 1) {
             Connections.update( c_id, { $inc: {count: -1}});
         } else {

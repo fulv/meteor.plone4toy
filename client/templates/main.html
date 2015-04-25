@@ -178,34 +178,7 @@
               <div id="viewlet-above-content-body"></div>
               <div id="content-core">
                   <div id="folderlisting-main-table">
-                      <!-- Navigation -->
-                      <div class="listingBar">
-
-                        {{#if nextPath}}
-                          <span class="next">
-                              <a href="{{nextPath}}">
-
-                                     Next
-                                     {{batchIncrement}}
-                                     items
-
-                                 &raquo;
-                              </a>
-                          </span>
-                        {{else}}
-                          {{#unless ready}}
-                            {{>spinner}}
-                          {{/unless}}
-                        {{/if}}
-
-                          <!-- Link to first -->
-
-                          <!-- Pagelist with links to previous pages for quick navigation -->
-
-                          <!-- Current page -->
-
-                              <span class="nowShowing">Now showing first {{batchSize}} items</span>
-                      </div>
+                      {{> listingBar}}
                       <table class="listing" id="listing-table"
                              summary="Content listing">
                           <thead>
@@ -229,6 +202,7 @@
                               {{> resetstablerows}}
                           </tbody>
                       </table>
+                      {{> listingBar}}
                   </div>
               </div>
               <div id="viewlet-below-content-body">
@@ -254,13 +228,14 @@
           <div id="content">
               <div id="viewlet-above-content-title"></div>
               <h1 class="documentFirstHeading"> 
-                History of connections
+                Current connections
               </h1>
               <div id="viewlet-below-content-title">
               </div>
               <div id="viewlet-above-content-body"></div>
               <div id="content-core">
                   <div id="folderlisting-main-table">
+                      {{> listingBar}}
                       <table class="listing" id="listing-table"
                              summary="Content listing">
                           <thead>
@@ -286,6 +261,7 @@
                               {{> connectionstablerows}}
                           </tbody>
                       </table>
+                      {{> listingBar}}
                   </div>
               </div>
               <div id="viewlet-below-content-body">
@@ -302,6 +278,37 @@
   </div>
 </template>
 
+<template name="listingBar">
+  <!-- Navigation -->
+  <div class="listingBar">
+
+    {{#if nextPath}}
+      <span class="next">
+          <a href="{{nextPath}}">
+
+                 Next
+                 {{batchIncrement}}
+                 items
+
+             &raquo;
+          </a>
+      </span>
+    {{else}}
+      {{#unless ready}}
+        {{>spinner}}
+      {{/unless}}
+    {{/if}}
+
+      <!-- Link to first -->
+
+      <!-- Pagelist with links to previous pages for quick navigation -->
+
+      <!-- Current page -->
+
+    <span class="nowShowing">Now showing first {{batchSize}} items</span>
+  </div>
+</template>
+
 <template name="resetstablerows">
     {{#each items}}
         {{> resetRow}}
@@ -309,7 +316,7 @@
 </template>
 
 <template name="connectionstablerows">
-    {{#each connectionInstances}}
+    {{#each items}}
         {{> connectionRow}}
     {{/each}}
 </template>
