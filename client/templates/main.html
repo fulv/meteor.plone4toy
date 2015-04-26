@@ -21,13 +21,6 @@
 </template>
 
 
-<template name="listingtablerows">
-    {{#each items}}
-        {{> contentRow}}
-    {{/each}}
-</template>
-
-
 <template name="contentRow">
     <tr class="draggable {{evenodd}}" id="folder-contents-item-{{name}}">
 
@@ -160,82 +153,89 @@
   </dl>
 </template>
 
+
 <template name="ListingTable">
-<div id="content">
-    <div id="viewlet-above-content-title"></div>
-    <h1 class="documentFirstHeading"> 
-                {{Title}}
-              </h1>
-    <div id="viewlet-below-content-title">
-    </div>
-    <div id="viewlet-above-content-body"></div>
-    <div id="content-core">
-        <div id="folderlisting-main-table">
-            {{> listingBar}}
-            <table class="listing" id="listing-table" summary="Content listing">
-                {{> Template.contentBlock}}
-                <tbody>
-                  {{#each items}}
-                      {{> ../RowTemplate}}
-                  {{/each}}
-                </tbody>
-            </table>
-            {{> listingBar}}
-        </div>
-    </div>
-    <div id="viewlet-below-content-body">
-        <div class="visualClear">
-            <!-- -->
-        </div>
-        <div class="documentActions">
-        </div>
-    </div>
-</div>
+  <div id="content">
+      <div id="viewlet-above-content-title"></div>
+      <h1 class="documentFirstHeading"> 
+        {{Title}}
+      </h1>
+      <div id="viewlet-below-content-title">
+      </div>
+      <div id="viewlet-above-content-body"></div>
+      <div id="content-core">
+          <div id="folderlisting-main-table">
+              {{> listingBar}}
+              <table class="listing" id="listing-table" summary="Content listing">
+                  {{> yield "tablehead"}}
+                  <tbody>
+                    {{> yield}}
+                  </tbody>
+              </table>
+              {{> listingBar}}
+          </div>
+      </div>
+      <div id="viewlet-below-content-body">
+          <div class="visualClear">
+              <!-- -->
+          </div>
+          <div class="documentActions">
+          </div>
+      </div>
+  </div>
 </template>
 
-<template name="resets">
-  {{#ListingTable}}
-    <thead>
-        <tr>
-            <th colspan="2" class="nosort">
-                &nbsp;
-            </th>
-        </tr>
-        <tr>
-            <th class="nosort column" id="resets-datetime-column">
-                &nbsp;Date&nbsp;&amp;&nbsp;Time&nbsp;
-            </th>
-            <th class="nosort column" id="resets-user-column">
-                &nbsp;User&nbsp;
-            </th>
-        </tr>
-    </thead>
-  {{/ListingTable}}
+
+<template name="TableContents">
+  {{#each items}}
+      {{> ../RowTemplate}}
+  {{/each}}
+
+  {{> contentFor region="tablehead" template=TableHeadTemplate}}
 </template>
 
-<template name="connections">
-  {{#ListingTable}}
-      <thead>
-          <tr>
-              <th colspan="3" class="nosort">&nbsp;</th>
-          </tr>
-          <tr>
-              <th class="nosort column"
-                  id="resets-datetime-column">
-                &nbsp;Date&nbsp;&amp;&nbsp;Time&nbsp;
-              </th>
-              <th class="nosort column"
-                  id="resets-user-column">
-                &nbsp;IP&nbsp;address&nbsp;
-              </th>
-              <th class="nosort column"
-                  id="resets-simultaneous-column">
-                &nbsp;Simultaneous connections&nbsp;
-              </th>
-          </tr>
-      </thead>
-  {{/ListingTable}}
+
+<template name="ResetsTableHead">
+  <thead>
+      <tr>
+          <th colspan="2" class="nosort">
+              &nbsp;
+          </th>
+      </tr>
+      <tr>
+          <th class="nosort column" id="resets-datetime-column">
+              &nbsp;Date&nbsp;&amp;&nbsp;Time&nbsp;
+          </th>
+          <th class="nosort column" id="resets-user-column">
+              &nbsp;User&nbsp;
+          </th>
+      </tr>
+  </thead>
 </template>
+
+
+<template name="ConnectionsTableHead">
+  <thead>
+      <tr>
+          <th colspan="3" class="nosort">&nbsp;</th>
+      </tr>
+      <tr>
+          <th class="nosort column"
+              id="resets-datetime-column">
+            &nbsp;Date&nbsp;&amp;&nbsp;Time&nbsp;
+          </th>
+          <th class="nosort column"
+              id="resets-user-column">
+            &nbsp;IP&nbsp;address&nbsp;
+          </th>
+          <th class="nosort column"
+              id="resets-simultaneous-column">
+            &nbsp;Simultaneous connections&nbsp;
+          </th>
+      </tr>
+  </thead>
+</template>
+
 
 <template name="listingBar">
   <!-- Navigation -->
@@ -258,6 +258,7 @@
   </div>
 </template>
 
+
 <template name="resetRow">
     <tr class="draggable {{evenodd}}"
         id="resets-item-{{dateTimeClass datetime}}">
@@ -279,6 +280,7 @@
       <td class="state-published sortabledata-{{count}}">{{count}}</td>
     </tr>
 </template>
+
 
 <template name="breadcrumbs">
   <div id="portal-breadcrumbs">

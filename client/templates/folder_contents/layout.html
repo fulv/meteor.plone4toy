@@ -76,7 +76,9 @@
                                       </tr>
                                   </thead>
                                   <tbody>
-                                      {{> listingtablerows}}
+                                    {{#each items}}
+                                        {{> contentRow}}
+                                    {{/each}}
                                   </tbody>
                               </table>
                               {{> listingBar}}
