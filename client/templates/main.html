@@ -22,7 +22,7 @@
 
 
 <template name="contentRow">
-    <tr class="draggable {{evenodd}}" id="folder-contents-item-{{name}}">
+    <tr class="draggable {{parity}}" id="folder-contents-item-{{name}}">
 
       <td class="draggable draggingHook" style="cursor: ns-resize;">⣿
       </td>
@@ -260,7 +260,7 @@
 
 
 <template name="resetRow">
-    <tr class="draggable {{evenodd}}"
+    <tr class="draggable {{parity}}"
         id="resets-item-{{dateTimeClass datetime}}">
       <td class="state-published sortabledata-{{dateTimeClass datetime}}">
         {{dateTimeText datetime}}
@@ -271,7 +271,7 @@
 
 
 <template name="connectionRow">
-    <tr class="draggable {{evenodd}}"
+    <tr class="draggable {{parity}}"
         id="connections-item-{{dateTimeClass datetime}}">
       <td class="state-published sortabledata-{{dateTimeClass datetime}}">
         {{dateTimeText datetime}}
