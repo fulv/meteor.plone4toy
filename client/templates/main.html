@@ -176,7 +176,7 @@
                 {{> Template.contentBlock}}
                 <tbody>
                   {{#each items}}
-                      {{> RowTemplate}}
+                      {{> ../RowTemplate}}
                   {{/each}}
                 </tbody>
             </table>
@@ -256,18 +256,6 @@
 
     <span class="nowShowing">Now showing first {{batchSize}} items</span>
   </div>
-</template>
-
-<template name="resetstablerows">
-    {{#each items}}
-        {{> resetRow}}
-    {{/each}}
-</template>
-
-<template name="connectionstablerows">
-    {{#each items}}
-        {{> connectionRow}}
-    {{/each}}
 </template>
 
 <template name="resetRow">
