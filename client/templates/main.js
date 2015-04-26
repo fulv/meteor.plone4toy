@@ -6,7 +6,14 @@ Template.registerHelper("dateTimeClass", function(dateTime) {
     return moment(dateTime).format('YYYY-MM-DD-hh-mm-ss');
 });
 
-Template.globalnav.helpers({
+Template.Header.helpers({
+});
+
+Template.GlobalNav.helpers({
+    navItems: function() {
+        var cursor = ContentItems.find({}, { limit: 5});
+        return cursor.map(addPlain);
+    },
     isFolderish: function() {
         return this.typename === 'folder';
     }

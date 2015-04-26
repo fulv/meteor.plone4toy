@@ -1,9 +1,4 @@
 <template name="layout">
-  <div id="portal-columns" class="row">
-      <div id="portal-column-content" class="cell width-full position-0">
-          <div id="viewlet-above-content">
-              {{> breadcrumbs}}
-          </div>
           <div class="documentEditable">
               {{#if currentUser}}
               <div id="edit-bar">
@@ -62,46 +57,7 @@
                               <div class="visualClear" id="clear-space-before-navigation">
                                   <!-- -->
                               </div>
-                              <!-- Navigation -->
-                              <div class="listingBar">
-
-                                {{#if nextPath}}
-                                  <span class="next">
-                                      <a href="{{nextPath}}">
-
-                                             Next
-                                             {{batchIncrement}}
-                                             items
-
-                                         &raquo;
-                                      </a>
-                                  </span>
-                                {{else}}
-                                  {{#unless ready}}
-                                    {{>spinner}}
-                                  {{/unless}}
-                                {{/if}}
-
-                                  <!-- Link to first -->
-
-                                  <!-- Pagelist with links to previous pages for quick navigation -->
-
-                                  <!-- Current page -->
-
-                                      <span class="nowShowing">Now showing first {{batchSize}} items</span>
-
-
-                                  <!-- Pagelist with links to next pages for quick navigation -->
-
-<!--                                     <a href="{{siteroot}}/folder_contents?pagenumber:int=2&amp;pagesize=3">2</a>
-
-
-                                    <a href="{{siteroot}}/folder_contents?pagenumber:int=3&amp;pagesize=3">3</a>
- -->
-
-                                  <!-- Link to last -->
-
-                              </div>
+                              {{> listingBar}}
 
                               <table class="listing" id="listing-table" summary="Content listing">
                                   <thead>
@@ -123,48 +79,7 @@
                                       {{> listingtablerows}}
                                   </tbody>
                               </table>
-                              <!-- Navigation -->
-                              <div class="listingBar">
-
-
-                                {{#if nextPath}}
-                                  <span class="next">
-                                      <a href="{{nextPath}}">
-
-                                             Next
-                                             {{batchIncrement}}
-                                             items
-
-                                         &raquo;
-                                      </a>
-                                  </span>
-                                {{else}}
-                                  {{#unless ready}}
-                                    {{>spinner}}
-                                  {{/unless}}
-                                {{/if}}
-
-                                  <!-- Link to first -->
-
-
-                                  <!-- Pagelist with links to previous pages for quick navigation -->
-
-                                  <!-- Current page -->
-
-                                      <span class="nowShowing">Now showing first {{batchSize}} items</span>
-
-
-                                  <!-- Pagelist with links to next pages for quick navigation -->
-
-<!--                                     <a href="{{siteroot}}/folder_contents?pagenumber:int=2&amp;pagesize=3">2</a>
-
-
-                                    <a href="{{siteroot}}/folder_contents?pagenumber:int=3&amp;pagesize=3">3</a>
- -->
-
-                                  <!-- Link to last -->
-
-                              </div>
+                              {{> listingBar}}
                               {{#if currentUser}}
                               <input class="context" type="submit" name="folder_copy:method" value="Copy" />
                               <input class="context" type="submit" name="folder_cut:method" value="Cut" />
@@ -185,10 +100,6 @@
                   </div>
               </div>
           </div>
-          <div id="viewlet-below-content">
-          </div>
-      </div>
-  </div>
 </template>
 
 <template name="ActionMenu">
