@@ -4,10 +4,10 @@ Meteor.publish('contentitems', function(options) {
         limit: Number
     });
     var user = Meteor.users.findOne(this.userId);
-    Counts.publish(this, 'contentcount', 
+    Counts.publish(this, 'contentcount',
         ContentItems.find(), { noReady: true });
     if (user) {
-        Counts.publish(this, 'owncontentcount', 
+        Counts.publish(this, 'owncontentcount',
             ContentItems.find({author: user.username}), { noReady: true});
     }
     return ContentItems.find({}, options);

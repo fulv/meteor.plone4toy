@@ -12,7 +12,7 @@ if (ContentItems.find().count() === 0) {
     defaultview: true,
     author: 'admin'
   });
-  
+
   ContentItems.insert({
     title: 'News',
     name: 'news',
@@ -24,7 +24,7 @@ if (ContentItems.find().count() === 0) {
     defaultview: false,
     author: 'admin'
   });
-  
+
   ContentItems.insert({
     title: 'Events',
     name: 'events',
@@ -63,7 +63,7 @@ if (ContentTypes.find().count() === 0) {
     type: 'Event',
     title: 'Event',
     name: 'event',
-    description: 'Events can be shown in calendars.',    
+    description: 'Events can be shown in calendars.',
   });
 
   ContentTypes.insert({
@@ -107,7 +107,7 @@ if (ContentTypes.find().count() === 0) {
     name: 'document',
     description: '',
   });
-  
+
   ContentTypes.insert({
     type: 'Document',
     title: 'Slow Success',

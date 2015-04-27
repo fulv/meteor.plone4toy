@@ -8,7 +8,7 @@ Accounts.onCreateUser(function(options, user) {
     user.username = user.services.github.username;
   }
   user.lifetimeCreatedItems = 0;
- 
+
   return user;
 });
 
