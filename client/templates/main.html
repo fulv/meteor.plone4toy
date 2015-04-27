@@ -43,25 +43,6 @@
 </template>
 
 
-<template name="actionMenuContent">
-  <ul>
-    {{#each contentTypes}}
-        {{> addItem}}
-    {{/each}}
-  </ul>
-</template>
-
-
-<template name="addItem">
-  <li>
-    <a href="{{siteroot}}createObject?type_name={{type}}"
-       class="contenttype-{{name}}" id="{{name}}" title="{{description}}">
-        <span class="subMenuTitle">{{title}}</span>
-    </a>
-  </li>
-</template>
-
-
 <template name="ListingTable">
   <div id="content">
       <div id="viewlet-above-content-title"></div>
