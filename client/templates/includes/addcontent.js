@@ -1,30 +1,30 @@
-Template.ActionMenu.helpers({
+Template.AddContentMenu.helpers({
     activeState: function() {
-        return Session.get('ActionMenu.active');
+        return Session.get('AddContentMenu.active');
     },
     contentTypes: function() {
         return ContentTypes.find();
     }
 });
 
-Template.ActionMenu.events({
+Template.AddContentMenu.events({
     'click .actionMenuHeader': function(e) {
         e.preventDefault();
 
-        Session.set('ActionMenu.active', 'activated');
+        Session.set('AddContentMenu.active', 'activated');
     },
     'click dl.activated .actionMenuHeader': function(e) {
         e.preventDefault();
 
-        Session.set('ActionMenu.active', 'deactivated');
+        Session.set('AddContentMenu.active', 'deactivated');
     },
     'click dd': function(e) {
         e.preventDefault();
 
-        Session.set('ActionMenu.active', 'deactivated');
+        Session.set('AddContentMenu.active', 'deactivated');
     },
     'mouseleave dl': function(e) {
-        Session.set('ActionMenu.active', 'deactivated');
+        Session.set('AddContentMenu.active', 'deactivated');
     }
 });
 
