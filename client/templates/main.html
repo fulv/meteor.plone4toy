@@ -62,35 +62,6 @@
 </template>
 
 
-<template name="errors">
-    <div class="errors">
-        {{#each errors}}
-            {{> error}}
-        {{/each}}
-        {{#each notifications}}
-            {{> notification}}
-        {{/each}}
-    </div>
-</template>
-
-<template name="error">
-    <div class="alert alert-info" role="alert">
-        <button type="button" class="close" data-dismiss="alert">
-          &times;
-        </button>
-        {{message}}
-    </div>
-</template>
-
-<template name="notification">
-    <div class="alert alert-warning" role="alert">
-        <button type="button" class="close" data-dismiss="alert">
-        &times;
-        </button>
-        {{message}}
-    </div>
-</template>
-
 <template name="SiteStats">
   <dl class="actionMenu {{activeState}}" id="portal-sitetools">
 

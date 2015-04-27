@@ -1,5 +1,5 @@
-Errors =    new Mongo.Collection(null);
+Errors = new Mongo.Collection(null);
 
 throwError = function(message) {
-    Errors.insert({message: message})
+    Errors.insert({message: message, class: "info", type: "Error"})
 }

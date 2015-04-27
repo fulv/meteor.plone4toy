@@ -86,30 +86,6 @@ Template.addItem.events({
     }
 });
 
-Template.errors.helpers({
-    errors: function() {
-        return Errors.find();
-    },
-    notifications: function() {
-        return Notifications.find();
-    }
-});
-
-Template.error.rendered = function() {
-    var error = this.data;
-    Meteor.setTimeout(function() {
-        Errors.remove(error._id);
-    }, 3000);
-};
-
-
-Template.notification.rendered = function() {
-    var notification = this.data;
-    Meteor.setTimeout(function() {
-        Notifications.remove(notification._id);
-    }, 3000);
-};
-
 Template.SiteStats.helpers({
     usersCount: function() {
         ready = Meteor.subscribe('usersCount').ready();
