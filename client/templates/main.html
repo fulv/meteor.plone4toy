@@ -1,26 +1,3 @@
-<template name="GlobalNav">
-    <p class="hiddenStructure">Navigation</p>
-
-    <ul id="portal-globalnav">
-        {{> menuItem title="Home" name="index_html" class="selected" href="/"}}
-
-        {{#each navItems}}
-            {{#unless defaultview}}
-                {{> menuItem}}
-            {{/unless}}
-        {{/each}}
-    </ul>
-
-</template>
-
-
-<template name="menuItem">
-    <li id="portaltab-{{name}}" class="{{class}}">
-      <a href="{{href}}" title="{{title}}">{{title}}</a>
-    </li>
-</template>
-
-
 <template name="contentRow">
     <tr class="draggable {{parity}}" id="folder-contents-item-{{name}}">
 

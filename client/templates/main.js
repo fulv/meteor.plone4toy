@@ -9,16 +9,6 @@ Template.registerHelper("dateTimeClass", function(dateTime) {
 Template.Header.helpers({
 });
 
-Template.GlobalNav.helpers({
-    navItems: function() {
-        var cursor = ContentItems.find({}, { limit: 5});
-        return cursor.map(addPlain);
-    },
-    isFolderish: function() {
-        return this.typename === 'folder';
-    }
-});
-
 Template.contentRow.helpers({
     type: function() {
         return ContentTypes.findOne({name: this.typename}).title;
