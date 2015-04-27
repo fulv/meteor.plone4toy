@@ -30,12 +30,22 @@ h2.tileHeadline {
     *display: inline;
 }
 
+
+/* 
+The next two !attribute rules below break Meteor's compilation:
+=> Errors prevented startup:
+
+   While building the application:
+   client/css/IEFixes.css: missing '}' near line nnn
+
+*/
+
 /* IE7: fixes super-wide div for JavaScript Tag selector */
 div.optionsBox {
-    !width: 50%;
+/*    !width: 50%;*/
 }
 .optionsBox input {
-    !margin: 0px;
+/*    !margin: 0px;*/
 }
 /* IE7: Display menu falls under footer (see Events page) (IE7) #10872 */
 #portal-columns {
