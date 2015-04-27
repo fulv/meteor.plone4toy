@@ -1,10 +1,34 @@
-Template.actionMenuContent.helpers({
+Template.ActionMenu.helpers({
+    activeState: function() {
+        return Session.get('ActionMenu.active');
+    },
     contentTypes: function() {
         return ContentTypes.find();
     }
 });
 
-Template.addItem.events({
+Template.ActionMenu.events({
+    'click .actionMenuHeader': function(e) {
+        e.preventDefault();
+
+        Session.set('ActionMenu.active', 'activated');
+    },
+    'click dl.activated .actionMenuHeader': function(e) {
+        e.preventDefault();
+
+        Session.set('ActionMenu.active', 'deactivated');
+    },
+    'click dd': function(e) {
+        e.preventDefault();
+
+        Session.set('ActionMenu.active', 'deactivated');
+    },
+    'mouseleave dl': function(e) {
+        Session.set('ActionMenu.active', 'deactivated');
+    }
+});
+
+Template.AddItem.events({
     'click a': function(e) {
         e.preventDefault();
 
