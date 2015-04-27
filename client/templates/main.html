@@ -62,46 +62,6 @@
 </template>
 
 
-<template name="SiteStats">
-  <dl class="actionMenu {{activeState}}" id="portal-sitetools">
-
-    <dt class="actionMenuHeader">
-      <a id="published-items" href="{{siteroot}}sitestats">
-        {{getPublishedCount 'contentcount'}}/{{max_items}} &ndash; More Stats
-      </a>
-    </dt>
-    <dd class="actionMenuContent">
-      <ul>
-          <li id="sitetools-userscount">
-            <a href="{{siteroot}}users">
-              {{usersCount}} registered users
-            </a>
-          </li>
-          {{#if currentUser}}
-          <li id="sitetools-useritemscount">
-            <a href="{{siteroot}}personalitems">
-              {{getPublishedCount 'owncontentcount'}}/
-              {{lifetimeCreatedItems}} items you created
-            </a>
-          </li>
-          {{/if}}
-          <li id="sitetools-resets">
-            <a href="{{pathFor 'resets'}}">
-              {{resets}} database resets
-            </a>
-          </li>
-          <li id="sitetools-connections">
-            <a href="{{pathFor 'connections'}}">
-              {{connections}} simultaneous connections
-            </a>
-          </li>
-      </ul>
-    </dd>
-
-  </dl>
-</template>
-
-
 <template name="ListingTable">
   <div id="content">
       <div id="viewlet-above-content-title"></div>
