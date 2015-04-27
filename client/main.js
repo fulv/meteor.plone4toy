@@ -4,7 +4,8 @@ Meteor.subscribe('notifications');
 
 Meteor.subscribe('registry', {
     onReady: function() {
-        Session.set('SiteStats.resets', Registry.findOne().resetInstances.length);
+        var resetcount = Registry.findOne().resetInstances.length;
+        Session.set('SiteStats.resets', resetcount);
     }
 });
 
