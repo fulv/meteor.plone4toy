@@ -73,14 +73,14 @@
       <div id="viewlet-above-content-body"></div>
       <div id="content-core">
           <div id="folderlisting-main-table">
-              {{> listingBar}}
+              {{> ListingBar}}
               <table class="listing" id="listing-table" summary="Content listing">
                   {{> yield "tablehead"}}
                   <tbody>
                     {{> yield}}
                   </tbody>
               </table>
-              {{> listingBar}}
+              {{> ListingBar}}
           </div>
       </div>
       <div id="viewlet-below-content-body">
@@ -142,28 +142,6 @@
           </th>
       </tr>
   </thead>
-</template>
-
-
-<template name="listingBar">
-  <!-- Navigation -->
-  <div class="listingBar">
-    {{#if nextPath}}
-      <span class="next">
-          <a href="{{nextPath}}">
-            Next {{batchIncrement}} items &raquo;
-          </a>
-      </span>
-    {{else}}
-      {{#unless ready}}
-        {{>spinner}}
-      {{/unless}}
-    {{/if}}
-
-      <!-- Current page -->
-
-    <span class="nowShowing">Now showing first {{batchSize}} items</span>
-  </div>
 </template>
 
 

@@ -1,0 +1,28 @@
+<template name="ListingBar">
+{{!--
+      This template requires that the data context provide the following:
+      - nextPath
+      - batchIncrement
+      - batchSize
+      - ready
+--}}
+
+  <!-- Navigation -->
+  <div class="listingBar">
+    {{#if nextPath}}
+      <span class="next">
+          <a href="{{nextPath}}">
+            Next {{batchIncrement}} items &raquo;
+          </a>
+      </span>
+    {{else}}
+      {{#unless ready}}
+        {{>spinner}}
+      {{/unless}}
+    {{/if}}
+
+      <!-- Current page -->
+
+    <span class="nowShowing">Now showing first {{batchSize}} items</span>
+  </div>
+</template>
