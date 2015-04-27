@@ -1,0 +1,43 @@
+<template name="contentRow">
+    <tr class="draggable {{parity}}" id="folder-contents-item-{{name}}">
+
+      <td class="draggable draggingHook" style="cursor: ns-resize;">⣿
+      </td>
+      <td class="notDraggable">
+        <input type="checkbox" class="noborder" name="paths:list"
+               id="cb_{{name}}" value="{{name}}" alt="Select {{title}}"
+               title="Select {{title}}" />
+        <input type="hidden" name="selected_obj_paths:list" value="{{name}}" />
+        <label class="hiddenStructure" for="cb_{{name}}">{{title}}</label>
+      </td>
+      <td>
+          <a href="{{siteroot}}{{name}}"
+             class=" state-published contenttype-{{typename}}"
+             title="{{type}}: {{description}}">
+            {{#if defaultview}}
+                <strong>{{title}}</strong>
+                <span class="defaultView" title="Default view for this folder"
+                      style="color: #f00;">
+                  &#x25a0;
+                </span>
+            {{/if}}
+            {{#unless defaultview}}
+                {{title}}
+            {{/unless}}
+          </a>
+      </td>
+      <td>
+        <span class="state-published">{{size}}</span>
+      </td>
+      <td class="state-published sortabledata-{{dateTimeClass modified}}">
+        {{dateTimeText modified}}
+      </td>
+      <td>
+        <span class="state-published">Published</span>
+      </td>
+      <td class="state-published sortabledata-{{currentUser}}">
+        {{author}}
+      </td>
+    </tr>
+
+</template>

@@ -1,0 +1,40 @@
+
+<template name="ListingTable">
+  <div id="content">
+      <div id="viewlet-above-content-title"></div>
+      <h1 class="documentFirstHeading"> 
+        {{Title}}
+      </h1>
+      <div id="viewlet-below-content-title">
+      </div>
+      <div id="viewlet-above-content-body"></div>
+      <div id="content-core">
+          <div id="folderlisting-main-table">
+              {{> ListingBar}}
+              <table class="listing" id="listing-table" summary="Content listing">
+                  {{> yield "tablehead"}}
+                  <tbody>
+                    {{> yield}}
+                  </tbody>
+              </table>
+              {{> ListingBar}}
+          </div>
+      </div>
+      <div id="viewlet-below-content-body">
+          <div class="visualClear">
+              <!-- -->
+          </div>
+          <div class="documentActions">
+          </div>
+      </div>
+  </div>
+</template>
+
+
+<template name="TableContents">
+  {{#each items}}
+      {{> ../RowTemplate}}
+  {{/each}}
+
+  {{> contentFor region="tablehead" template=TableHeadTemplate}}
+</template>
