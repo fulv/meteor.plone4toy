@@ -1,14 +1,3 @@
-Template.registerHelper("dateTimeText", function(dateTime) {
-    return moment(dateTime).format('MMM DD, YYYY h:mm A');
-});
-
-Template.registerHelper("dateTimeClass", function(dateTime) {
-    return moment(dateTime).format('YYYY-MM-DD-hh-mm-ss');
-});
-
-Template.Header.helpers({
-});
-
 Template.contentRow.helpers({
     type: function() {
         return ContentTypes.findOne({name: this.typename}).title;
