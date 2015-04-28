@@ -1,17 +1,17 @@
-<template name="layout">
+<template name="Layout">
           <div class="documentEditable">
               {{#if currentUser}}
               <div id="edit-bar">
                   <p class="hiddenStructure">Views</p>
                   <ul class="contentViews" id="content-views">
                       <li id="contentview-folderContents" class="selected">
-                          <a href="{{siteroot}}folder_contents">Contents</a>
+                          <a href="{{siteRoot}}folder_contents">Contents</a>
                       </li>
                       <li id="contentview-view" class="plain">
-                          <a href="{{siteroot}}">View</a>
+                          <a href="{{siteRoot}}">View</a>
                       </li>
                       <li id="contentview-local_roles" class="plain">
-                          <a href="{{siteroot}}@@sharing">Sharing</a>
+                          <a href="{{siteRoot}}@@sharing">Sharing</a>
                       </li>
                   </ul>
                   <div class="contentActions">
@@ -41,13 +41,13 @@
                           </span>
                           <span class="contentHistory" id="content-history">
                           —
-                              <a href="{{siteroot}}@@historyview">History</a>
+                              <a href="{{siteRoot}}@@historyview">History</a>
                           </span>
                       </div>
                   </div>
                   <div id="viewlet-above-content-body"></div>
                   <div id="content-core">
-                      <form name="folderContentsForm" method="post" action="{{siteroot}}" class="kssattr-serveraction-foldercontents_update_table">
+                      <form name="folderContentsForm" method="post" action="{{siteRoot}}" class="kssattr-serveraction-foldercontents_update_table">
                           <div id="folderlisting-main-table">
                               <input type="hidden" name="sort_on" value="getObjPositionInParent" />
                               <input type="hidden" name="pagenumber" value="1" />
@@ -62,7 +62,7 @@
                               <table class="listing" id="listing-table" summary="Content listing">
                                   <thead>
                                       <tr>
-                                          <th colspan="7" class="nosort">Select: <a id="foldercontents-selectall" href="{{siteroot}}folder_contents?pagenumber=1&amp;pagesize=20&amp;select=screen">All</a></th>
+                                          <th colspan="7" class="nosort">Select: <a id="foldercontents-selectall" href="{{siteRoot}}folder_contents?pagenumber=1&amp;pagesize=20&amp;select=screen">All</a></th>
                                       </tr>
                                       <tr>
                                           <th class="nosort column" id="foldercontents-order-column">
@@ -77,7 +77,7 @@
                                   </thead>
                                   <tbody>
                                     {{#each items}}
-                                        {{> contentRow}}
+                                        {{> ContentRow}}
                                     {{/each}}
                                   </tbody>
                               </table>

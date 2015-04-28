@@ -1,0 +1,71 @@
+<template name="Header">
+    <div id="portal-top" class="row">
+        <div class="cell width-full position-0">
+            <div id="portal-header">
+                <p class="hiddenStructure">
+                    <a accesskey="2" href="{{siteRoot}}folder_contents#content">Skip to content.</a> |
+                    <a accesskey="6" href="{{siteRoot}}folder_contents#portal-globalnav">Skip to navigation</a>
+                </p>
+                <div id="portal-personaltools-wrapper">
+                    <p class="hiddenStructure">Personal tools</p>
+                    <dl class="actionMenu deactivated" id="portal-personaltools">
+                        {{> loginButtons align="right"}}
+                    </dl>
+                    {{#if currentUser}}
+                    <dl class="actionMenu deactivated" id="portal-personaltools">
+                        <dt class="actionMenuHeader">
+                            <a id="user-name" href="{{siteRoot}}useractions">admin</a>
+                        </dt>
+                        <dd class="actionMenuContent">
+                            <ul>
+                                <li id="personaltools-dashboard">
+                                    <a href="{{siteRoot}}dashboard">Dashboard</a>
+                                </li>
+                                <li id="personaltools-preferences">
+                                    <a href="{{siteRoot}}@@personal-preferences">Preferences</a>
+                                </li>
+                                <li id="personaltools-plone_setup">
+                                    <a href="{{siteRoot}}@@overview-controlpanel">Site Setup</a>
+                                </li>
+                                <li id="personaltools-logout">
+                                    <a href="{{siteRoot}}logout">Log out</a>
+                                </li>
+                            </ul>
+                        </dd>
+                    </dl>
+                    {{/if}}
+
+                    {{> SiteStats}}
+                </div>
+                <div id="portal-searchbox">
+                    <form id="searchGadget_form" action="{{siteRoot}}@@search">
+                        <div class="LSBox">
+                            <label class="hiddenStructure" for="searchGadget">Search Site</label>
+                            <input name="SearchableText" type="text" size="18" title="Search Site" placeholder="Search Site" accesskey="4" class="searchField" id="searchGadget" />
+                            <input class="searchButton" type="submit" value="Search" />
+                            <div class="searchSection">
+                                <input id="searchbox_currentfolder_only" class="noborder" type="checkbox" name="path" value="/sunburst" />
+                                <label for="searchbox_currentfolder_only" style="cursor: pointer">
+                                    only in current section
+                                </label>
+                            </div>
+                            <div class="LSResult" id="LSResult">
+                                <div class="LSShadow" id="LSShadow"></div>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="portal-advanced-search" class="hiddenStructure">
+                        <a href="{{siteRoot}}@@search" accesskey="5">
+                            Advanced Search&hellip;
+                        </a>
+                    </div>
+                </div>
+                <a id="portal-logo" title="Site" accesskey="1" href="{{siteRoot}}">
+                    <img src="{{siteRoot}}logo.png" alt="Site" title="Site" height="56" width="215" />
+                </a>
+                {{> GlobalNav}}
+            </div>
+            {{> Messages}}
+        </div>
+    </div>
+</template>

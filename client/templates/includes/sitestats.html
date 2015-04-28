@@ -2,20 +2,20 @@
   <dl class="actionMenu {{activeState}}" id="portal-sitetools">
 
     <dt class="actionMenuHeader">
-      <a id="published-items" href="{{siteroot}}sitestats">
+      <a id="published-items" href="{{siteRoot}}sitestats">
         {{getPublishedCount 'contentcount'}}/{{max_items}} &ndash; More Stats
       </a>
     </dt>
     <dd class="actionMenuContent">
       <ul>
           <li id="sitetools-userscount">
-            <a href="{{siteroot}}users">
+            <a href="{{siteRoot}}users">
               {{usersCount}} registered users
             </a>
           </li>
           {{#if currentUser}}
           <li id="sitetools-useritemscount">
-            <a href="{{siteroot}}personalitems">
+            <a href="{{siteRoot}}personalitems">
               {{getPublishedCount 'owncontentcount'}}/
               {{lifetimeCreatedItems}} items you created
             </a>

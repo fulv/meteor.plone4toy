@@ -1,4 +1,4 @@
-<template name="contentRow">
+<template name="ContentRow">
     <tr class="draggable {{parity}}" id="folder-contents-item-{{name}}">
 
       <td class="draggable draggingHook" style="cursor: ns-resize;">⣿
@@ -11,7 +11,7 @@
         <label class="hiddenStructure" for="cb_{{name}}">{{title}}</label>
       </td>
       <td>
-          <a href="{{siteroot}}{{name}}"
+          <a href="{{siteRoot}}{{name}}"
              class=" state-published contenttype-{{typename}}"
              title="{{type}}: {{description}}">
             {{#if defaultview}}

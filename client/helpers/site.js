@@ -1,5 +1,5 @@
 // A global helper that returns the site's root URL
-Template.registerHelper("siteroot", Meteor.absoluteUrl(""));
+Template.registerHelper("siteRoot", Meteor.absoluteUrl(""));
 
 // When loading the page, fix the <base> href attribute.
 Meteor.startup(function () {
