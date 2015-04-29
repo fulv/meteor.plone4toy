@@ -1,3 +1,6 @@
+// used by GlobalNav and SiteStats:
+Meteor.subscribe('contentitems', {sort: {modified: -1}, limit: 5});
+
 Meteor.subscribe('contenttypes');
 
 Meteor.subscribe('notifications');
