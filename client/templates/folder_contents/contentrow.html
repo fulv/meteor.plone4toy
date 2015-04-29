@@ -1,43 +1,59 @@
+<template name="FolderContentsTableHead">
+  <tr>
+      <th colspan="7" class="nosort">Select: <a id="foldercontents-selectall" href="{{siteRoot}}folder_contents?pagenumber=1&amp;pagesize=20&amp;select=screen">All</a></th>
+  </tr>
+  <tr>
+      <th class="nosort column" id="foldercontents-order-column">
+      </th>
+      <th class="nosort" id="foldercontents-select-column">&nbsp;</th>
+      <th class="nosort column" id="foldercontents-title-column">&nbsp;Title&nbsp;</th>
+      <th class="nosort column" id="foldercontents-size-column">&nbsp;Size&nbsp;</th>
+      <th class="nosort column" id="foldercontents-modified-column">&nbsp;Modified&nbsp;</th>
+      <th class="nosort column" id="foldercontents-status-column">&nbsp;State&nbsp;</th>
+      <th class="nosort column" id="foldercontents-author-column">&nbsp;Author&nbsp;</th>
+  </tr>
+</template>
+
+
 <template name="ContentRow">
-    <tr class="draggable {{parity}}" id="folder-contents-item-{{name}}">
+  <tr class="draggable {{parity}}" id="folder-contents-item-{{name}}">
 
-      <td class="draggable draggingHook" style="cursor: ns-resize;">⣿
-      </td>
-      <td class="notDraggable">
-        <input type="checkbox" class="noborder" name="paths:list"
-               id="cb_{{name}}" value="{{name}}" alt="Select {{title}}"
-               title="Select {{title}}" />
-        <input type="hidden" name="selected_obj_paths:list" value="{{name}}" />
-        <label class="hiddenStructure" for="cb_{{name}}">{{title}}</label>
-      </td>
-      <td>
-          <a href="{{siteRoot}}{{name}}"
-             class=" state-published contenttype-{{typename}}"
-             title="{{type}}: {{description}}">
-            {{#if defaultview}}
-                <strong>{{title}}</strong>
-                <span class="defaultView" title="Default view for this folder"
-                      style="color: #f00;">
-                  &#x25a0;
-                </span>
-            {{/if}}
-            {{#unless defaultview}}
-                {{title}}
-            {{/unless}}
-          </a>
-      </td>
-      <td>
-        <span class="state-published">{{size}}</span>
-      </td>
-      <td class="state-published sortabledata-{{dateTimeClass modified}}">
-        {{dateTimeText modified}}
-      </td>
-      <td>
-        <span class="state-published">Published</span>
-      </td>
-      <td class="state-published sortabledata-{{currentUser}}">
-        {{author}}
-      </td>
-    </tr>
-
+    <td class="draggable draggingHook" style="cursor: ns-resize;">⣿
+    </td>
+    <td class="notDraggable">
+      <input type="checkbox" class="noborder" name="paths:list"
+             id="cb_{{name}}" value="{{name}}" alt="Select {{title}}"
+             title="Select {{title}}" />
+      <input type="hidden" name="selected_obj_paths:list" value="{{name}}" />
+      <label class="hiddenStructure" for="cb_{{name}}">{{title}}</label>
+    </td>
+    <td>
+        <a href="{{siteRoot}}{{name}}"
+           class=" state-published contenttype-{{typename}}"
+           title="{{type}}: {{description}}">
+          {{#if defaultview}}
+              <strong>{{title}}</strong>
+              <span class="defaultView" title="Default view for this folder"
+                    style="color: #f00;">
+                &#x25a0;
+              </span>
+          {{/if}}
+          {{#unless defaultview}}
+              {{title}}
+          {{/unless}}
+        </a>
+    </td>
+    <td>
+      <span class="state-published">{{size}}</span>
+    </td>
+    <td class="state-published sortabledata-{{dateTimeClass modified}}">
+      {{dateTimeText modified}}
+    </td>
+    <td>
+      <span class="state-published">Published</span>
+    </td>
+    <td class="state-published sortabledata-{{currentUser}}">
+      {{author}}
+    </td>
+  </tr>
 </template>

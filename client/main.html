@@ -20,29 +20,3 @@
         {{> Footer}}
     </div>
 </body>
-
-<template name="mainlayout">
-    <div id="portal-columns" class="row">
-        <div id="portal-column-content" class="cell width-full position-0">
-            <div id="viewlet-above-content">
-                {{> Breadcrumbs}}
-            </div>
-            {{> yield}}
-            <div id="viewlet-below-content">
-            </div>
-        </div>
-    </div>
-</template>
-
-<template name="newlayout">
-    <div id="portal-columns" class="row">
-        <div id="portal-column-content" class="cell width-full position-0">
-            <div id="viewlet-above-content">
-                {{> Breadcrumbs}}
-            </div>
-            {{> ListingTable}}
-            <div id="viewlet-below-content">
-            </div>
-        </div>
-    </div>
-</template>

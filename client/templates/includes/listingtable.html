@@ -1,35 +1,94 @@
-
 <template name="ListingTable">
-  <div id="content">
-      <div id="viewlet-above-content-title"></div>
-      <h1 class="documentFirstHeading">
-        {{Title}}
-      </h1>
-      <div id="viewlet-below-content-title">
-      </div>
-      <div id="viewlet-above-content-body"></div>
-      <div id="content-core">
-          <div id="folderlisting-main-table">
-              {{> ListingBar}}
-              <table class="listing" id="listing-table" summary="Content listing">
-                  {{> yield "tablehead"}}
-                  <tbody>
-                    {{> yield}}
-                  </tbody>
-              </table>
-              {{> ListingBar}}
-          </div>
-      </div>
-      <div id="viewlet-below-content-body">
-          <div class="visualClear">
-              <!-- -->
-          </div>
-          <div class="documentActions">
-          </div>
-      </div>
-  </div>
-</template>
+          <div class="{{#if showBorder}}documentEditable{{/if}}">
+              {{#if showBorder}}
+              <div id="edit-bar">
+                  <p class="hiddenStructure">Views</p>
+                  <ul class="contentViews" id="content-views">
+                      <li id="contentview-folderContents" class="selected">
+                          <a href="{{siteRoot}}folder_contents">Contents</a>
+                      </li>
+                      <li id="contentview-view" class="plain">
+                          <a href="{{siteRoot}}">View</a>
+                      </li>
+                      <li id="contentview-local_roles" class="plain">
+                          <a href="{{siteRoot}}@@sharing">Sharing</a>
+                      </li>
+                  </ul>
+                  <div class="contentActions">
+                      <ul id="contentActionMenus">
+                          <li>
+                          {{> AddContentMenu}}
+                          </li>
+                      </ul>
+                  </div>
+              </div>
+              {{/if}}
+              <dl class="portalMessage info" id="kssPortalMessage" style="display:none">
+                  <dt>Info</dt>
+                  <dd></dd>
+              </dl>
+              <div id="content">
+                  <div id="viewlet-above-content-title"></div>
+                  <h1 class="documentFirstHeading">
+                    {{Title}}
+                  </h1>
+                  <div id="viewlet-below-content-title">
+                      <div class="documentByLine" id="plone-document-byline">
+                          <span class="documentModified">
+                              <span>
+                                  last modified
+                              </span> Apr 10, 2015 12:15 PM
+                          </span>
+                          <span class="contentHistory" id="content-history">
+                          —
+                              <a href="{{siteRoot}}@@historyview">History</a>
+                          </span>
+                      </div>
+                  </div>
+                  <div id="viewlet-above-content-body"></div>
+                  <div id="content-core">
+                      <form name="folderContentsForm" method="post" action="{{siteRoot}}" class="kssattr-serveraction-foldercontents_update_table">
+                          <div id="folderlisting-main-table">
+                              <input type="hidden" name="sort_on" value="getObjPositionInParent" />
+                              <input type="hidden" name="pagenumber" value="1" />
+                              <input type="hidden" name="pagesize" value="20" />
+                              <input type="hidden" name="show_all" value="False" />
+                              <input type="hidden" name="orig_template" value="folder_contents" />
+                              <div class="visualClear" id="clear-space-before-navigation">
+                                  <!-- -->
+                              </div>
+                              {{> ListingBar}}
 
+                              <table class="listing" id="listing-table" summary="Content listing">
+                                <thead>
+                                  {{> yield "tablehead"}}
+                                </thead>
+                                <tbody>
+                                  {{> yield}}
+                                </tbody>
+                              </table>
+                              {{> ListingBar}}
+                              {{#if showBorder}}
+                              <input class="context" type="submit" name="folder_copy:method" value="Copy" />
+                              <input class="context" type="submit" name="folder_cut:method" value="Cut" />
+                              <input class="context" type="submit" name="folder_rename_form:method" value="Rename" />
+                              <input class="context" type="submit" name="folder_delete:method" value="Delete" />
+                              <input class="context" type="submit" name="content_status_history:method" value="Change State" />
+                              {{/if}}
+                          </div>
+                          <input type="hidden" name="_authenticator" value="4db30233c0e495c06bdb5162578bc6b5d6117849" />
+                      </form>
+                  </div>
+                  <div id="viewlet-below-content-body">
+                      <div class="visualClear">
+                          <!-- -->
+                      </div>
+                      <div class="documentActions">
+                      </div>
+                  </div>
+              </div>
+          </div>
+</template>
 
 <template name="TableContents">
   {{#each items}}
@@ -38,3 +97,4 @@
 
   {{> contentFor region="tablehead" template=TableHeadTemplate}}
 </template>
+

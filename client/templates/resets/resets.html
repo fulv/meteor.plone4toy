@@ -1,30 +1,28 @@
 <template name="ResetsTableHead">
-  <thead>
-      <tr>
-          <th colspan="2" class="nosort">
-              &nbsp;
-          </th>
-      </tr>
-      <tr>
-          <th class="nosort column" id="resets-datetime-column">
-              &nbsp;Date&nbsp;&amp;&nbsp;Time&nbsp;
-          </th>
-          <th class="nosort column" id="resets-user-column">
-              &nbsp;User&nbsp;
-          </th>
-      </tr>
-  </thead>
+  <tr>
+      <th colspan="2" class="nosort">
+          &nbsp;
+      </th>
+  </tr>
+  <tr>
+      <th class="nosort column" id="resets-datetime-column">
+          &nbsp;Date&nbsp;&amp;&nbsp;Time&nbsp;
+      </th>
+      <th class="nosort column" id="resets-user-column">
+          &nbsp;User&nbsp;
+      </th>
+  </tr>
 </template>
 
 
 <template name="ResetRow">
-    <tr class="draggable {{parity}}"
-        id="resets-item-{{dateTimeClass datetime}}">
-      <td class="state-published sortabledata-{{dateTimeClass datetime}}">
-        {{dateTimeText datetime}}
-      </td>
-      <td class="state-published sortabledata-{{author}}">{{author}}</td>
-    </tr>
+  <tr class="draggable {{parity}}"
+      id="resets-item-{{dateTimeClass datetime}}">
+    <td class="state-published sortabledata-{{dateTimeClass datetime}}">
+      {{dateTimeText datetime}}
+    </td>
+    <td class="state-published sortabledata-{{author}}">{{author}}</td>
+  </tr>
 </template>
 
 

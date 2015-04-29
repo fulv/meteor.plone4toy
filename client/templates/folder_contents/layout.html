@@ -1,6 +1,6 @@
 <template name="Layout">
-          <div class="documentEditable">
-              {{#if currentUser}}
+          <div class="{{#if showBorder}}documentEditable{{/if}}">
+              {{#if showBorder}}
               <div id="edit-bar">
                   <p class="hiddenStructure">Views</p>
                   <ul class="contentViews" id="content-views">
@@ -30,7 +30,7 @@
               <div id="content">
                   <div id="viewlet-above-content-title"></div>
                   <h1 class="documentFirstHeading">
-                    Site
+                    {{Title}}
                   </h1>
                   <div id="viewlet-below-content-title">
                       <div class="documentByLine" id="plone-document-byline">
@@ -61,28 +61,16 @@
 
                               <table class="listing" id="listing-table" summary="Content listing">
                                   <thead>
-                                      <tr>
-                                          <th colspan="7" class="nosort">Select: <a id="foldercontents-selectall" href="{{siteRoot}}folder_contents?pagenumber=1&amp;pagesize=20&amp;select=screen">All</a></th>
-                                      </tr>
-                                      <tr>
-                                          <th class="nosort column" id="foldercontents-order-column">
-                                          </th>
-                                          <th class="nosort" id="foldercontents-select-column">&nbsp;</th>
-                                          <th class="nosort column" id="foldercontents-title-column">&nbsp;Title&nbsp;</th>
-                                          <th class="nosort column" id="foldercontents-size-column">&nbsp;Size&nbsp;</th>
-                                          <th class="nosort column" id="foldercontents-modified-column">&nbsp;Modified&nbsp;</th>
-                                          <th class="nosort column" id="foldercontents-status-column">&nbsp;State&nbsp;</th>
-                                          <th class="nosort column" id="foldercontents-author-column">&nbsp;Author&nbsp;</th>
-                                      </tr>
+                                    {{> yield "tablehead"}}
                                   </thead>
                                   <tbody>
                                     {{#each items}}
-                                        {{> ContentRow}}
+                                        {{> yield}}
                                     {{/each}}
                                   </tbody>
                               </table>
                               {{> ListingBar}}
-                              {{#if currentUser}}
+                              {{#if showBorder}}
                               <input class="context" type="submit" name="folder_copy:method" value="Copy" />
                               <input class="context" type="submit" name="folder_cut:method" value="Cut" />
                               <input class="context" type="submit" name="folder_rename_form:method" value="Rename" />
@@ -102,4 +90,12 @@
                   </div>
               </div>
           </div>
+</template>
+
+<template name="TableContents">
+  {{#each items}}
+      {{> ../RowTemplate}}
+  {{/each}}
+
+  {{> contentFor region="tablehead" template=TableHeadTemplate}}
 </template>
