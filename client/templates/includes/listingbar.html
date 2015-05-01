@@ -12,7 +12,7 @@
     {{#if nextPath}}
       <span class="next">
           <a href="{{nextPath}}">
-            Next {{batchIncrement}} items &raquo;
+            Next {{pluralize batchIncrement "item"}} &raquo;
           </a>
       </span>
     {{else}}
@@ -23,6 +23,8 @@
 
       <!-- Current page -->
 
-    <span class="nowShowing">Now showing first {{batchSize}} items</span>
+    <span class="nowShowing">
+      Now showing first {{pluralize batchSize "item"}}
+    </span>
   </div>
 </template>

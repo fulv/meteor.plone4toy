@@ -10,25 +10,25 @@
       <ul>
           <li id="sitetools-userscount">
             <a href="{{siteRoot}}users">
-              {{usersCount}} registered users
+              {{pluralize usersCount "registered user"}}
             </a>
           </li>
           {{#if currentUser}}
           <li id="sitetools-useritemscount">
             <a href="{{siteRoot}}personalitems">
               {{getPublishedCount 'owncontentcount'}}/
-              {{lifetimeCreatedItems}} items you created
+              {{pluralize lifetimeCreatedItems "item"}} you created
             </a>
           </li>
           {{/if}}
           <li id="sitetools-resets">
             <a href="{{pathFor 'resets'}}">
-              {{resets}} database resets
+              {{pluralize resets "database reset"}}
             </a>
           </li>
           <li id="sitetools-connections">
             <a href="{{pathFor 'connections'}}">
-              {{connections}} simultaneous connections
+              {{pluralize connections "simultaneous connection"}}
             </a>
           </li>
       </ul>
