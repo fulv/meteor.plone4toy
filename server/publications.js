@@ -1,30 +1,35 @@
 Meteor.publish('contentitems', function(options) {
-    check(options, {
-        sort: Object,
-        limit: Number
-    });
-    var user = Meteor.users.findOne(this.userId);
-    Counts.publish(this, 'contentcount',
-        ContentItems.find(), { noReady: true });
-    if (user) {
-        Counts.publish(this, 'owncontentcount',
-            ContentItems.find({author: user.username}), { noReady: true});
-    }
+  check(options, {
+      sort: Object,
+      limit: Number,
+      author: Match.Optional(String)
+  });
+  var user = Meteor.users.findOne(this.userId);
+  Counts.publish(this, 'contentcount',
+      ContentItems.find(), { noReady: true });
+  if (user) {
+      Counts.publish(this, 'owncontentcount',
+          ContentItems.find({author: user.username}), { noReady: true});
+  }
+  if (options.author) {
+    return ContentItems.find({author: options.author}, _.omit(options, 'author'));
+  } else {
     return ContentItems.find({}, options);
+  }
 });
 
 Meteor.publish('contenttypes', function(options) {
-    return ContentTypes.find({});
+  return ContentTypes.find({});
 });
 
 Meteor.publish('notifications', function() {
-    return Notifications.find({});
+  return Notifications.find({});
 });
 
 Meteor.publish('registry', function() {
-    return Registry.find({});
+  return Registry.find({});
 });
 
 Meteor.publish('connections', function() {
-    return Connections.find({});
+  return Connections.find({});
 });
