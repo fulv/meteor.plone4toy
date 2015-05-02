@@ -36,16 +36,8 @@ Template.AddItem.events({
         if (element.nodeName != 'A') {
             element = e.target.parentNode;
         }
-        var type = element.id,
-            text = dimsum.sentence(2),
-            wordcount = Math.floor(Math.random() * 5) + 1,
-            regexp = new RegExp("((\\S+\\s+){" + wordcount + "}).*"),
-            title = text.replace(regexp, "$1").trim();
-        title.replace(/(\W|\S)/, "" );
+        var type = element.id;
         var item = {
-            title: title,
-            name: title.toLowerCase().split(' ').join('-'),
-            description: text,
             typename: type,
         };
 
