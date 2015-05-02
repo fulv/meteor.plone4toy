@@ -1,3 +1,19 @@
+/*
+
+Publications:       Collections:      Objects:        Helpers:
+- userData          -                 - Meteor.users
+- usersCount        - users-count     - UsersCount    - usersCount
+
+
+
+
+
+*/
+
+
+
+
+
 Accounts.onCreateUser(function(options, user) {
   if (options.profile) {
     user.profile = options.profile;
@@ -14,8 +30,9 @@ Accounts.onCreateUser(function(options, user) {
 
 Meteor.publish("userData", function () {
   if (this.userId) {
-    return Meteor.users.find({_id: this.userId},
-                             {fields: {'lifetimeCreatedItems': 1}});
+    return Meteor.users.find({},
+                             {fields: {'lifetimeCreatedItems': 1,
+                                       'username': 1}});
   } else {
     this.ready();
   }

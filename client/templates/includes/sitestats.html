@@ -8,12 +8,12 @@
     </dt>
     <dd class="actionMenuContent">
       <ul>
+          {{#if currentUser}}
           <li id="sitetools-userscount">
-            <a href="{{siteRoot}}users">
+            <a href="{{pathFor 'users'}}">
               {{pluralize usersCount "registered user"}}
             </a>
           </li>
-          {{#if currentUser}}
           <li id="sitetools-useritemscount">
             <a href="{{siteRoot}}personalitems">
               {{getPublishedCount 'owncontentcount'}}/
