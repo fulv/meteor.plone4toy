@@ -1,6 +1,6 @@
 Template.GlobalNav.helpers({
     navItems: function() {
-        var cursor = ContentItems.find({}, { limit: 5});
+        var cursor = ContentItems.find({}, {sort: {modified: -1}, limit: 5});
         return cursor.map(addPlain);
     },
     isFolderish: function() {
