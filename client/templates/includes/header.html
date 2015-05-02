@@ -11,30 +11,6 @@
                     <dl class="actionMenu deactivated" id="portal-personaltools">
                         {{> loginButtons align="right"}}
                     </dl>
-                    {{#if currentUser}}
-                    <dl class="actionMenu deactivated" id="portal-personaltools">
-                        <dt class="actionMenuHeader">
-                            <a id="user-name" href="{{siteRoot}}useractions">admin</a>
-                        </dt>
-                        <dd class="actionMenuContent">
-                            <ul>
-                                <li id="personaltools-dashboard">
-                                    <a href="{{siteRoot}}dashboard">Dashboard</a>
-                                </li>
-                                <li id="personaltools-preferences">
-                                    <a href="{{siteRoot}}@@personal-preferences">Preferences</a>
-                                </li>
-                                <li id="personaltools-plone_setup">
-                                    <a href="{{siteRoot}}@@overview-controlpanel">Site Setup</a>
-                                </li>
-                                <li id="personaltools-logout">
-                                    <a href="{{siteRoot}}logout">Log out</a>
-                                </li>
-                            </ul>
-                        </dd>
-                    </dl>
-                    {{/if}}
-
                     {{> SiteStats}}
                 </div>
                 <div id="portal-searchbox">
