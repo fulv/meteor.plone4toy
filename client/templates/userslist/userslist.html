@@ -18,7 +18,11 @@
 <template name="UserRow">
   <tr class="draggable {{parity}}"
       id="resets-item-{{username}}">
-    <td class="state-published sortabledata-{{username}}">{{username}}</td>
+    <td class="state-published sortabledata-{{username}}">
+      {{#linkTo route='authorContentItemsList' data=routeData}}
+        {{username}}
+      {{/linkTo}}
+    </td>
     <td class="state-published sortabledata-{{lifetimeCreatedItems}}">
       {{lifetimeCreatedItems}}
     </td>
