@@ -1,6 +1,6 @@
 <template name="FolderContentsTableHead">
   <tr>
-      <th colspan="7" class="nosort">Select: <a id="foldercontents-selectall" href="{{siteRoot}}folder_contents?pagenumber=1&amp;pagesize=20&amp;select=screen">All</a></th>
+      <th colspan="7" class="nosort">{{> SelectAllTemplate}}</th>
   </tr>
   <tr>
       <th class="nosort column" id="foldercontents-order-column">
@@ -60,4 +60,13 @@
 
     </td>
   </tr>
+</template>
+
+<template name="SelectAll">
+  Select: <a id="foldercontents-selectall" href="{{siteRoot}}">All</a>
+</template>
+
+<template name="SelectNone">
+  All {{pluralize batchSize "item"}} in this folder are selected.
+  <a id="foldercontents-clearselection" href="{{siteRoot}}">Clear selection</a>
 </template>

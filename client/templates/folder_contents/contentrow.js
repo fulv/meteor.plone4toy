@@ -4,3 +4,12 @@ Template.ContentRow.helpers({
     }
 });
 
+Template.FolderContentsTableHead.helpers({
+  SelectAllTemplate: function() {
+    if (Session.get('selectAll.template') === 'all') {
+      return Template.SelectAll;
+    } else {
+      return Template.SelectNone;
+    }
+  }
+});
