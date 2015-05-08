@@ -23,7 +23,7 @@ Template.ListingTable.events({
     _.each(checkboxes, function(item) {
       $(item).prop("checked", true);
     });
-    Session.set('selectAll.template', 'none');
+    Iron.controller().state.set('selectAll.template', 'SelectNone');
   },
 
   'click #foldercontents-clearselection': function(event, template) {
@@ -34,6 +34,6 @@ Template.ListingTable.events({
     _.each(checkboxes, function(item) {
       $(item).prop("checked", false);
     });
-    Session.set('selectAll.template', 'all');
+    Iron.controller().state.set('selectAll.template', 'SelectAll');
   }
 });

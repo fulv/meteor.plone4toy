@@ -1,11 +1,15 @@
 <template name="FolderContentsTableHead">
+  {{#if showBorder}}
   <tr>
-      <th colspan="7" class="nosort">{{> SelectAllTemplate}}</th>
+      <th colspan="7" class="nosort">{{> DynamicTemplate template=SelectAllTemplate}}</th>
   </tr>
+  {{/if}}
   <tr>
+    {{#if showBorder}}
       <th class="nosort column" id="foldercontents-order-column">
       </th>
       <th class="nosort" id="foldercontents-select-column">&nbsp;</th>
+    {{/if}}
       <th class="nosort column" id="foldercontents-title-column">&nbsp;Title&nbsp;</th>
       <th class="nosort column" id="foldercontents-size-column">&nbsp;Size&nbsp;</th>
       <th class="nosort column" id="foldercontents-modified-column">&nbsp;Modified&nbsp;</th>
@@ -17,7 +21,7 @@
 
 <template name="ContentRow">
   <tr class="draggable {{parity}}" id="folder-contents-item-{{name}}">
-
+    {{#if ../showBorder}}
     <td class="draggable draggingHook" style="cursor: ns-resize;">⣿
     </td>
     <td class="notDraggable">
@@ -27,6 +31,7 @@
       <input type="hidden" name="selected_obj_paths:list" value="{{name}}" />
       <label class="hiddenStructure" for="cb_{{name}}">{{title}}</label>
     </td>
+    {{/if}}
     <td>
         <a href="{{siteRoot}}{{name}}"
            class=" state-published contenttype-{{typename}}"
