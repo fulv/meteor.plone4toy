@@ -190,3 +190,9 @@ div.listingBar span.nowShowing {
     margin-bottom: 1em;
   }
 }
+
+#folderlisting-main-table input[type=submit].deactivated {
+    color: lightgrey;
+    cursor: not-allowed;
+    pointer-events: none;
+}

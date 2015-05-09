@@ -35,5 +35,29 @@ Template.ListingTable.events({
       $(item).prop("checked", false);
     });
     Iron.controller().state.set('selectAll.template', 'SelectAll');
+  },
+
+  'change input[type=checkbox]': function(event, template) {
+    template.itemCheckboxes.set($(event.target).val(), $(event.target).is(':checked'));
+    var reduce = _.reduce(template.itemCheckboxes.keys,
+                          function(memo, value) {
+                            return (memo || (('' + value) === 'true'));
+                          }, false);
+    template.buttonsActive.set(reduce);
   }
+});
+
+Template.ListingTable.helpers({
+  buttonClass: function() {
+    if (Template.instance().buttonsActive.get()) {
+      return {class: 'context activated'};
+    } else {
+      return {class: 'context deactivated'};
+    }
+  },
+});
+
+Template.ListingTable.onCreated(function() {
+  this.itemCheckboxes = new ReactiveDict();
+  this.buttonsActive = new ReactiveVar(true);
 });

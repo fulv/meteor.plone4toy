@@ -9,3 +9,7 @@ Template.FolderContentsTableHead.helpers({
     return Iron.controller().state.get('selectAll.template');
   }
 });
+
+Template.ContentRow.onRendered(function() {
+  this.$("input[type=checkbox]").change();
+});

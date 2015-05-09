@@ -72,11 +72,11 @@
                               </table>
                               {{> ListingBar}}
                               {{#if showBorder}}
-                              <input class="context" type="submit" name="folder_copy:method" value="Copy" />
-                              <input class="context" type="submit" name="folder_cut:method" value="Cut" />
-                              <input class="context" type="submit" name="folder_rename_form:method" value="Rename" />
-                              <input class="context" type="submit" name="folder_delete:method" value="Delete" />
-                              <input class="context" type="submit" name="content_status_history:method" value="Change State" />
+                              <input {{buttonClass}} type="submit" name="folder_copy:method" value="Copy" />
+                              <input {{buttonClass}} type="submit" name="folder_cut:method" value="Cut" />
+                              <input {{buttonClass}} type="submit" name="folder_rename_form:method" value="Rename" />
+                              <input {{buttonClass}} type="submit" name="folder_delete:method" value="Delete" />
+                              <input {{buttonClass}} type="submit" name="content_status_history:method" value="Change State" />
                               {{/if}}
                           </div>
                           <input type="hidden" name="_authenticator" value="4db30233c0e495c06bdb5162578bc6b5d6117849" />
