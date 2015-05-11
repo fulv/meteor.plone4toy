@@ -33,3 +33,12 @@ Meteor.publish('registry', function() {
 Meteor.publish('connections', function() {
   return Connections.find({});
 });
+
+Meteor.publish(('clipboards'), function() {
+  var user = Meteor.users.findOne(this.userId);
+  if (user) {
+    return Clipboards.find({username: user.username});
+  } else {
+    return [];
+  }
+});

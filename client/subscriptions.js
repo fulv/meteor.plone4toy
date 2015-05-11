@@ -11,3 +11,5 @@ Meteor.subscribe('registry', {
         Session.set('SiteStats.resets', resetcount);
     }
 });
+
+Meteor.subscribe('clipboards');
