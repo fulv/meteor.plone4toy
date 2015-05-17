@@ -1,0 +1,34 @@
+<template name='ListingContents'>
+  <form name="folderContentsForm" method="post" action="{{siteRoot}}" class="kssattr-serveraction-foldercontents_update_table">
+      <div id="folderlisting-main-table">
+          <input type="hidden" name="sort_on" value="getObjPositionInParent" />
+          <input type="hidden" name="pagenumber" value="1" />
+          <input type="hidden" name="pagesize" value="20" />
+          <input type="hidden" name="show_all" value="False" />
+          <input type="hidden" name="orig_template" value="folder_contents" />
+          <div class="visualClear" id="clear-space-before-navigation">
+              <!-- -->
+          </div>
+          {{> ListingBar}}
+
+          <table class="listing" id="listing-table" summary="Content listing">
+            <thead>
+              {{> yield "tablehead"}}
+            </thead>
+            <tbody>
+              {{> yield}}
+            </tbody>
+          </table>
+          {{> ListingBar}}
+          {{#if showBorder}}
+          <input {{buttonClass}} type="submit" name="folder_copy:method" value="Copy" />
+          <input {{buttonClass}} type="submit" name="folder_cut:method" value="Cut" />
+          <input {{pasteButtonClass}} type="submit" name="folder_paste:method" value="Paste" />
+          <input {{buttonClass}} type="submit" name="folder_rename_form:method" value="Rename" />
+          <input {{buttonClass}} type="submit" name="folder_delete:method" value="Delete" />
+          <input {{buttonClass}} type="submit" name="content_status_history:method" value="Change State" />
+          {{/if}}
+      </div>
+      <input type="hidden" name="_authenticator" value="4db30233c0e495c06bdb5162578bc6b5d6117849" />
+  </form>
+</template>

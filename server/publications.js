@@ -1,8 +1,9 @@
 Meteor.publish('contentitems', function(options) {
   check(options, {
-      sort: Object,
-      limit: Number,
-      author: Match.Optional(String)
+      sort: Match.Optional(Object),
+      limit: Match.Optional(Number),
+      author: Match.Optional(String),
+      name: Match.Optional(String)
   });
   var user = Meteor.users.findOne(this.userId);
   Counts.publish(this, 'contentcount',
