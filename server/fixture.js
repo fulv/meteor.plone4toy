@@ -10,7 +10,8 @@ if (ContentItems.find().count() === 0) {
     modified: new Date(now - 12 * 3600 * 1000),
     objPositionInParent: 0,
     defaultview: true,
-    author: 'admin'
+    author: 'admin',
+    workflow_state: 'Published'
   });
 
   ContentItems.insert({
@@ -22,7 +23,8 @@ if (ContentItems.find().count() === 0) {
     modified: new Date(now - 12 * 3600 * 1000),
     objPositionInParent: 1,
     defaultview: false,
-    author: 'admin'
+    author: 'admin',
+    workflow_state: 'Published'
   });
 
   ContentItems.insert({
@@ -34,7 +36,8 @@ if (ContentItems.find().count() === 0) {
     modified: new Date(now - 12 * 3600 * 1000),
     objPositionInParent: 2,
     defaultview: false,
-    author: 'admin'
+    author: 'admin',
+    workflow_state: 'Published'
   });
 
   ContentItems.insert({
@@ -46,7 +49,8 @@ if (ContentItems.find().count() === 0) {
     modified: new Date(now - 12 * 3600 * 1000),
     objPositionInParent: 3,
     defaultview: false,
-    author: 'admin'
+    author: 'admin',
+    workflow_state: 'Published'
   });
 }
 

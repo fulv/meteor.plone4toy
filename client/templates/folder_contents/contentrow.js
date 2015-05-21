@@ -1,6 +1,12 @@
 Template.ContentRow.helpers({
     type: function() {
         return ContentTypes.findOne({name: this.typename}).title;
+    },
+    workflowState: function() {
+      return this.workflow_state;
+    },
+    workflowStateClass: function() {
+      return this.workflow_state.toLowerCase();
     }
 });
 

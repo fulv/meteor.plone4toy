@@ -13,9 +13,30 @@ Meteor.publish('contentitems', function(options) {
           ContentItems.find({author: user.username}), { noReady: true});
   }
   if (options.author) {
-    return ContentItems.find({author: options.author}, _.omit(options, 'author'));
+    return ContentItems.find({author: options.author,
+                              workflow_state: 'Published'
+                             },
+                             _.omit(options, 'author')
+                            );
   } else {
-    return ContentItems.find({}, options);
+    return ContentItems.find({workflow_state: 'Published'}, options);
+  }
+});
+
+Meteor.publish('ownprivatecontentitems', function(options) {
+  check(options, {
+      sort: Match.Optional(Object),
+      limit: Match.Optional(Number),
+      author: Match.Optional(String),
+      name: Match.Optional(String)
+  });
+  var user = Meteor.users.findOne(this.userId);
+  if (user) {
+    return ContentItems.find({
+                              workflow_state: 'Private',
+                              author: user.username
+                             },
+                             options);
   }
 });
 

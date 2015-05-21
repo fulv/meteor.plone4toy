@@ -55,7 +55,7 @@
       {{dateTimeText modified}}
     </td>
     <td>
-      <span class="state-published">Published</span>
+      <span class="state-{{workflowStateClass}}">{{workflowState}}</span>
     </td>
     <td class="state-published sortabledata-{{currentUser}}">
       {{#linkTo route='authorContentItemsList' data=routeData}}
