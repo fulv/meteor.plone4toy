@@ -8,18 +8,18 @@ Meteor.publish('contentitems', function(options) {
   var user = Meteor.users.findOne(this.userId);
   Counts.publish(this, 'contentcount',
       ContentItems.find(), { noReady: true });
+  Counts.publish(this, 'publiccount',
+      ContentItems.find({ workflow_state: 'Published' }), { noReady: true });
+
   if (user) {
       Counts.publish(this, 'owncontentcount',
-          ContentItems.find({author: user.username}), { noReady: true});
+          ContentItems.find({ author: user.username }), { noReady: true });
   }
   if (options.author) {
-    return ContentItems.find({author: options.author,
-                              workflow_state: 'Published'
-                             },
-                             _.omit(options, 'author')
-                            );
+    var query = { author: options.author, workflow_state: 'Published' };
+    return ContentItems.find( query, _.omit( options, 'author' ));
   } else {
-    return ContentItems.find({workflow_state: 'Published'}, options);
+    return ContentItems.find({ workflow_state: 'Published' }, options );
   }
 });
 
@@ -32,11 +32,17 @@ Meteor.publish('privateitems', function(options) {
   });
   var user = Meteor.users.findOne(this.userId);
   if (user) {
-    return ContentItems.find({
-                              workflow_state: 'Private',
-                              author: user.username
-                             },
-                             options);
+    var query;
+    if (user.username === 'admin') {
+      query = { workflow_state: 'Private' };
+    } else {
+      query = { workflow_state: 'Private', author: user.username };
+    }
+
+    Counts.publish(this, 'privatecount',
+      ContentItems.find(query), { noReady: true });
+
+    return ContentItems.find( query, options );
   } else {
     return [];
   }
