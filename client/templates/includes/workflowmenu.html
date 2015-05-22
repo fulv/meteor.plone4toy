@@ -1,6 +1,7 @@
 <template name='PloneContentmenuWorkflow'>
 <dl class="actionMenu {{activeState}}" id="plone-contentmenu-workflow">
   <dt class="actionMenuHeader label-state-published">
+{{#if own}}
     <a href="{{pathFor route='contentItem' data=getData}}/content_status_history" title="Change the state of this item">
 
           <span>State:</span>
@@ -8,7 +9,16 @@
           <span class="arrowDownAlternative">&#9660;</span>
 
     </a>
+{{else}}
+    <span class="noMenuAction">
+
+          <span>State:</span>
+          <span class="state-{{workflowStateClass}}">{{workflowState}}</span>
+
+    </span>
+{{/if}}
   </dt>
+{{#if own}}
   <dd class="actionMenuContent">
     <ul>
 {{!--
@@ -57,5 +67,6 @@
 
     </ul>
   </dd>
+{{/if}}
 </dl>
 </template>

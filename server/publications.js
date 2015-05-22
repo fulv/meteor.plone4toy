@@ -3,7 +3,6 @@ Meteor.publish('contentitems', function(options) {
       sort: Match.Optional(Object),
       limit: Match.Optional(Number),
       author: Match.Optional(String),
-      name: Match.Optional(String)
   });
   var user = Meteor.users.findOne(this.userId);
   Counts.publish(this, 'contentcount',
@@ -43,6 +42,34 @@ Meteor.publish('privateitems', function(options) {
       ContentItems.find(query), { noReady: true });
 
     return ContentItems.find( query, options );
+  } else {
+    return [];
+  }
+});
+
+Meteor.publish('singleitem', function(options) {
+  check(options, {
+      name: String
+  });
+  item = ContentItems.findOne(options);
+  if (item) {
+    var state = item.workflow_state;
+    if (state === 'Private') {
+      var user = Meteor.users.findOne(this.userId);
+      if (user) {
+        var author = item.author;
+        var username = user.username;
+        if (username === 'admin' || username === author) {
+          return ContentItems.find(options);
+        } else {
+          return [];
+        }
+      } else {
+        return [];
+      }
+    } else {
+      return ContentItems.find(options);
+    }
   } else {
     return [];
   }

@@ -10,6 +10,9 @@ Template.PloneContentmenuWorkflow.helpers({
     },
     public: function() {
       return (this.item.workflow_state === 'Published');
+    },
+    own: function() {
+      return (this.item.author === Meteor.user().username);
     }
 });
 
