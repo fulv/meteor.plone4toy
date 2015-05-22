@@ -134,8 +134,3 @@ if (Registry.find().count() === 0) {
     resetInstances: []
   });
 }
-
-if (!Registry.findOne().resetInstances) {
-  Registry.insert({ resetInstances: []});
-}
-
