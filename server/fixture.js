@@ -130,7 +130,12 @@ if (ContentTypes.find().count() === 0) {
 
 if (Registry.find().count() === 0) {
   Registry.insert({
-    resets: 0
+    resets: 0,
+    resetInstances: []
   });
+}
+
+if (!Registry.findOne().resetInstances) {
+  Registry.insert({ resetInstances: []});
 }
 
