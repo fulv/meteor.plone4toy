@@ -1,0 +1,43 @@
+<template name='EditBar'>
+  {{#if showBorder}}
+  <div id="edit-bar">
+      <p class="hiddenStructure">Views</p>
+      <ul class="contentViews" id="content-views">
+          {{#if displayContentsTab}}
+          <li id="contentview-folderContents" {{tabClass 'contents'}}>
+              <a href="{{pathFor 'contentItemsList'}}">Contents</a>
+          </li>
+          {{/if}}
+          <li id="contentview-view" {{tabClass 'view'}}>
+              <a href="{{pathFor route='contentItem' data=getData}}">View</a>
+          </li>
+          <li id="contentview-edit" {{tabClass 'edit'}}>
+              <a href="{{pathFor route='contentItem' data=getData}}/edit">Edit</a>
+          </li>
+          <li id="contentview-local_roles" {{tabClass 'sharing'}}>
+              <a href="{{pathFor route='contentItem' data=getData}}@@sharing">Sharing</a>
+          </li>
+          {{#if displayContentsTab}}
+          <li id="contentview-owncontent" {{tabClass 'owncontents'}}>
+              <a href="{{pathFor 'ownContentItemsList'}}">Your Contents</a>
+          </li>
+          {{/if}}
+      </ul>
+      <div class="contentActions">
+          <ul id="contentActionMenus">
+            <li>
+              {{> PloneContentmenuWorkflow}}
+            </li>
+            {{#if displayContentsTab}}
+              <li>
+              {{> AddContentMenu}}
+              </li>
+            {{/if}}
+            <li>
+              {{> PloneContentmenuActions}}
+            </li>
+          </ul>
+      </div>
+  </div>
+  {{/if}}
+</template>

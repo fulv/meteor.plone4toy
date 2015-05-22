@@ -23,7 +23,7 @@ Meteor.publish('contentitems', function(options) {
   }
 });
 
-Meteor.publish('ownprivatecontentitems', function(options) {
+Meteor.publish('privateitems', function(options) {
   check(options, {
       sort: Match.Optional(Object),
       limit: Match.Optional(Number),
@@ -37,6 +37,8 @@ Meteor.publish('ownprivatecontentitems', function(options) {
                               author: user.username
                              },
                              options);
+  } else {
+    return [];
   }
 });
 
