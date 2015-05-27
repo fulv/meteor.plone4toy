@@ -2,7 +2,7 @@
     <p class="hiddenStructure">Navigation</p>
 
     <ul id="portal-globalnav">
-        {{> MenuItem title="Home" name="index_html" class="selected" href="/"}}
+        {{> MenuItem home}}
 
         {{#each navItems}}
             {{#unless defaultview}}
@@ -16,7 +16,7 @@
 
 <template name="MenuItem">
     <li id="portaltab-{{name}}" class="{{class}}">
-      <a href="{{href}}" title="{{title}}">{{title}}</a>
+      <a href="{{pathFor route='contentItem'}}" title="{{title}}">{{title}}</a>
     </li>
 </template>
 
