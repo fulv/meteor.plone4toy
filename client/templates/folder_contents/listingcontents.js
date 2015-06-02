@@ -1,4 +1,4 @@
-Template.ListingTable.events({
+Template.ListingContents.events({
   'click input[name="folder_delete:method"]': function(event, template) {
     event.preventDefault();
 
@@ -78,7 +78,7 @@ Template.ListingTable.events({
   }
 });
 
-Template.ListingTable.helpers({
+Template.ListingContents.helpers({
   buttonClass: function() {
     if (Template.instance().buttonsActive.get()) {
       return {class: 'context activated'};
@@ -97,7 +97,7 @@ Template.ListingTable.helpers({
   }
 });
 
-Template.ListingTable.onCreated(function() {
+Template.ListingContents.onCreated(function() {
   this.itemCheckboxes = new ReactiveDict();
   this.buttonsActive = new ReactiveVar(true);
 });
