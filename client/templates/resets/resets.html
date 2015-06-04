@@ -21,7 +21,11 @@
     <td class="state-published sortabledata-{{dateTimeClass datetime}}">
       {{dateTimeText datetime}}
     </td>
-    <td class="state-published sortabledata-{{author}}">{{author}}</td>
+    <td class="state-published sortabledata-{{author}}">
+    {{#linkTo route='authorContentItemsList' data=routeData}}
+      {{author}}
+    {{/linkTo}}
+    </td>
   </tr>
 </template>
 
