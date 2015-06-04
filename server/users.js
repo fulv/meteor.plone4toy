@@ -28,6 +28,13 @@ Accounts.onCreateUser(function(options, user) {
   return user;
 });
 
+Accounts.onLogin(function(attempt) {
+  var name = attempt.user.username;
+  var clip = Clipboards.findOne({username: name});
+  Clipboards.remove(clip);
+});
+
+
 Meteor.publish("userData", function () {
   if (this.userId) {
     return Meteor.users.find({},
