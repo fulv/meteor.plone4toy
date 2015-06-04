@@ -30,6 +30,7 @@
             </li>
 
 
+            {{#if pasteActive}}
             <li>
               <a href="{{pathFor route='contentItem' data=getData}}/object_paste" class="actionicon-object_buttons-paste" id="plone-contentmenu-actions-paste" title="">
 
@@ -37,6 +38,7 @@
               </a>
 
             </li>
+            {{/if}}
 
 
             <li>

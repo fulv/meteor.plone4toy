@@ -10,16 +10,13 @@ Template.PloneContentmenuActions.events({
 
         Session.set('PloneContentmenuActions.active', 'activated');
     },
+
     'click dl.activated .actionMenuHeader': function(e) {
         e.preventDefault();
 
         Session.set('PloneContentmenuActions.active', 'deactivated');
     },
-    // 'click dd': function(e) {
-    //     e.preventDefault();
 
-    //     Session.set('PloneContentmenuActions.active', 'deactivated');
-    // },
     'mouseleave dl': function(e) {
         Session.set('PloneContentmenuActions.active', 'deactivated');
     },
@@ -35,11 +32,12 @@ Template.PloneContentmenuActions.events({
       Meteor.call('itemDelete', [item.doc], function(error, result) {
           if (error) {
               throwError(error.reason);
+          } else {
+            Router.go('/');
+            throwError("Item " + item.title + " deleted");
           }
       });
 
-      Router.go('/');
-      throwError("Item " + item.title + " deleted");
     },
 
     'click a#plone-contentmenu-actions-cut': function(event, template) {
@@ -57,12 +55,13 @@ Template.PloneContentmenuActions.events({
         Meteor.call('itemDelete', [item.doc], function(error, result) {
           if (error) {
             throwError(error.reason);
+          } else {
+            Router.go('/');
+            throwError("Item " + item.title + " cut to clipboard");
           }
         });
       });
 
-      Router.go('/');
-      throwError("Item " + item.title + " cut to clipboard");
     },
 
     'click a#plone-contentmenu-actions-copy': function(event, template) {
@@ -75,10 +74,10 @@ Template.PloneContentmenuActions.events({
       Meteor.call('clip', [item.doc], false, function(error, result) {
         if (error) {
           throwError(error.reason);
+        } else {
+          throwError("Item " + item.title + " copied to clipboard");
         }
       });
-
-      throwError("Item " + item.title + " copied to clipboard");
     },
 
     'click a#plone-contentmenu-actions-paste': function(event, template) {
@@ -89,13 +88,26 @@ Template.PloneContentmenuActions.events({
       Meteor.call('paste', function(error, result) {
         if (error) {
           throwError(error.reason);
+        } else {
+          throwError("Item " + " pasted from clipboard");
         }
-        console.log(result);
       });
 
-      throwError("Item " + " pasted from clipboard");
     }
 
+});
+
+
+Template.PloneContentmenuActions.helpers({
+  pasteActive: function() {
+    if (Meteor.userId()) {
+      var username = Meteor.user().username;
+      if (Clipboards.findOne({username: username})) {
+        return true;
+      }
+    }
+    return false;
+  }
 });
 
 
