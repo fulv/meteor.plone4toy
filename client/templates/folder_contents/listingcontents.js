@@ -5,9 +5,9 @@ Template.ListingContents.events({
     var array = findSelected(template);
 
     Meteor.call('itemDelete', array, function(error, result) {
-        if (error) {
-            throwError(error.reason);
-        }
+      if (error) {
+          throwError(error.reason);
+      }
     });
   },
 

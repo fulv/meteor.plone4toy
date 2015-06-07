@@ -3,60 +3,60 @@
     <dt class="actionMenuHeader label-">
       <a href="{{siteRoot}}/folder_contents" title="Actions for the current content item">
 
-            <span>Actions</span>
+        <span>Actions</span>
 
-            <span class="arrowDownAlternative">&#9660;</span>
+        <span class="arrowDownAlternative">&#9660;</span>
 
       </a>
     </dt>
     <dd class="actionMenuContent">
       <ul>
 
-            <li>
-              <a href="{{pathFor route='contentItem' data=getData}}/object_cut" class="actionicon-object_buttons-cut" id="plone-contentmenu-actions-cut" title="">
+        <li>
+          <a href="{{pathFor route='contentItem' data=getData}}/object_cut" class="actionicon-object_buttons-cut" id="plone-contentmenu-actions-cut" title="">
 
-                  <span class="subMenuTitle">Cut</span>
-              </a>
+            <span class="subMenuTitle">Cut</span>
+          </a>
 
-            </li>
-
-
-            <li>
-              <a href="{{pathFor route='contentItem' data=getData}}/object_copy" class="actionicon-object_buttons-copy" id="plone-contentmenu-actions-copy" title="">
-
-                  <span class="subMenuTitle">Copy</span>
-              </a>
-
-            </li>
+        </li>
 
 
-            {{#if pasteActive}}
-            <li>
-              <a href="{{pathFor route='contentItem' data=getData}}/object_paste" class="actionicon-object_buttons-paste" id="plone-contentmenu-actions-paste" title="">
+        <li>
+          <a href="{{pathFor route='contentItem' data=getData}}/object_copy" class="actionicon-object_buttons-copy" id="plone-contentmenu-actions-copy" title="">
 
-                  <span class="subMenuTitle">Paste</span>
-              </a>
+            <span class="subMenuTitle">Copy</span>
+          </a>
 
-            </li>
-            {{/if}}
+        </li>
 
 
-            <li>
-              <a href="{{pathFor route='contentItem' data=getData}}/delete_confirmation" class="actionicon-object_buttons-delete" id="plone-contentmenu-actions-delete" title="">
+        {{#if pasteActive}}
+        <li>
+          <a href="{{pathFor route='contentItem' data=getData}}/object_paste" class="actionicon-object_buttons-paste" id="plone-contentmenu-actions-paste" title="">
 
-                  <span class="subMenuTitle">Delete</span>
-              </a>
+            <span class="subMenuTitle">Paste</span>
+          </a>
 
-            </li>
+        </li>
+        {{/if}}
 
 
-            <li>
-              <a href="{{pathFor route='contentItem' data=getData}}/object_rename" class="actionicon-object_buttons-rename" id="plone-contentmenu-actions-rename" title="">
+        <li>
+          <a href="{{pathFor route='contentItem' data=getData}}/delete_confirmation" class="actionicon-object_buttons-delete" id="plone-contentmenu-actions-delete" title="">
 
-                  <span class="subMenuTitle">Rename</span>
-              </a>
+            <span class="subMenuTitle">Delete</span>
+          </a>
 
-            </li>
+        </li>
+
+
+        <li>
+          <a href="{{pathFor route='contentItem' data=getData}}/object_rename" class="actionicon-object_buttons-rename" id="plone-contentmenu-actions-rename" title="">
+
+            <span class="subMenuTitle">Rename</span>
+          </a>
+
+        </li>
 
       </ul>
     </dd>
