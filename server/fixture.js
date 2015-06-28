@@ -1,7 +1,7 @@
 if (ContentItems.find().count() === 0) {
   var now = new Date().getTime();
 
-  ContentItems.insert({
+  insertOrFail({
     title: 'Welcome to Plone',
     name: 'front-page',
     description: 'Congratulations! You have successfully installed Plone.',
@@ -14,7 +14,7 @@ if (ContentItems.find().count() === 0) {
     workflow_state: 'Published'
   });
 
-  ContentItems.insert({
+  insertOrFail({
     title: 'News',
     name: 'news',
     description: 'Site News',
@@ -27,7 +27,7 @@ if (ContentItems.find().count() === 0) {
     workflow_state: 'Published'
   });
 
-  ContentItems.insert({
+  insertOrFail({
     title: 'Events',
     name: 'events',
     description: 'Site Events',
@@ -40,7 +40,7 @@ if (ContentItems.find().count() === 0) {
     workflow_state: 'Published'
   });
 
-  ContentItems.insert({
+  insertOrFail({
     title: 'Users',
     name: 'Members',
     description: 'Site Users',
