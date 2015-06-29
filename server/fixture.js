@@ -1,3 +1,8 @@
+if (Meteor.users.find({username: 'admin'}).count() === 0) {
+  Accounts.createUser({username: 'admin', password: 'admin'});
+}
+
+
 if (ContentItems.find().count() === 0) {
   var now = new Date().getTime();
 
