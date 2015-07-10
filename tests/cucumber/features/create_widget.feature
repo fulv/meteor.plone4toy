@@ -5,6 +5,6 @@ Feature: Creating a widget
   @dev
   Scenario: Clicking the 'create widget' button will create and show a widget
     Given I am logged in
-    When I fill in the name with "Alpha"
-    And I click the button "Create Widget"
+    When I click the Add new menu
+    And I click the News Item menu item
     Then I should see a widget named "Alpha"
