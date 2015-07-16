@@ -15,24 +15,20 @@ var assert = require('assert');
       setValue('#login-username', 'bob').
       setValue('#login-password', 'testtest').
       click('#login-buttons-password').
-      call(callback);
+      getText('#login-name-link').
+      should.eventually.contain('bob').
+      and.notify(callback);
     });
 
     this.When(/^I click the Add new menu$/, function (callback) {
       this.client.
+      waitForExist('#plone-contentmenu-factories').
       click('#plone-contentmenu-factories').
+      waitForVisible('#news-item').
       call(callback);
     });
 
     this.When(/^I click the News Item menu item$/, function (callback) {
-      var firstname = "Empty";
-      // this.client.
-      // getText('#listing-table tr:first-child td:first-child a').
-      // then( function(names) {
-      //   console.log("Names: " + names);
-      //   firstname = names[0];
-      // });
-      // console.log("First Item: " + firstname);
       this.client.debug().
       click('#news-item').
       call(callback);
@@ -46,6 +42,10 @@ var assert = require('assert');
       callback.pending();
     });
 
+    this.Then(/^I should see a content item of type News$/, function (callback) {
+      // Write code here that turns the phrase above into concrete actions
+      callback.pending();
+    });
   }
 
 })();
