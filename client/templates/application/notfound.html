@@ -1,6 +1,48 @@
 <template name='notFound'>
-  <div class='not-found'>
-    <h2>404</h2>
-    <p>Sorry, we couldn't find a page at this address.</p>
-  </div>
+  <p>
+    We apologize for the inconvenience, but the page you were trying to access is not at this address.
+      You can use the links below to help you find what you are looking for.
+   </p>
+  <p>
+      If you are certain you have the correct web address but are encountering an error, please
+      contact the <span> <a href="http://127.0.0.1:8080/Plone2/contact-info">Site Administration</a></span>.
+  </p>
+  <p>
+  Thank you.
+  </p>
+  <!-- Offer search results for suggestions -->
+  <h3>You might have been looking for…</h3>
+  <dl>
+      <dt class="contenttype-document">
+         <a href="http://solitonconsulting.com/blog">A Blog Post</a>
+      </dt>
+      <dd>Blog Series: adsfad</dd>
+      <dt class="contenttype-link">
+         <a href="http://youtube.com" class="state-published">Screencast</a>
+      </dt>
+      <dd>A demo of meteor.plone</dd>
+      <dt class="contenttype-collection">
+         <a href="https://github.com/fulv/meteor.plone4toy" class="state-published">fulv/meteor.plone</a>
+      </dt>
+      <dd>Source Repository on GitHub</dd>
+      <dt class="contenttype-document">
+         <a href="http://meteor.com" class="state-published">Meteor</a>
+      </dt>
+      <dd>The Meteor homepage</dd>
+      <dt class="contenttype-collection">
+         <a href="http://meteorpad" class="state-published">Meteorpad</a>
+      </dt>
+      <dd>Meteorpad</dd>
+      <dt class="contenttype-folder">
+         <a href="https://en.wikipedia.org/wiki/Meteor_%28web_framework%29" class="state-published">Wikipedia</a>
+      </dt>
+      <dd>Meteor web framework on Wikipedia</dd>
+  </dl>
+
+
+  {{#contentFor "title"}}
+    <h1 class="documentFirstHeading">
+        This page does not seem to exist…
+    </h1>
+  {{/contentFor}}
 </template>
