@@ -1,5 +1,8 @@
 Template.ListingTable.helpers({
     ContentCoreTemplate: function() {
-      return Router.current().ContentCoreTemplate();
+      if (Router.current().route)
+        return Router.current().ContentCoreTemplate();
+      else
+        return Template.notFound;
     }
 });
