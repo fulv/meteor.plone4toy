@@ -1,73 +1,73 @@
 <template name='PloneContentmenuWorkflow'>
 {{#if ready}}
-<dl class="actionMenu {{activeState}}" id="plone-contentmenu-workflow">
-  <dt class="actionMenuHeader label-state-published">
-{{#if own}}
-    <a href="{{pathFor route='contentItem' data=getData}}/content_status_history" title="Change the state of this item">
-          <span>State:</span>
-          <span class="state-{{workflowStateClass}}">{{workflowState}}</span>
-          <span class="arrowDownAlternative">&#9660;</span>
+  <dl class="actionMenu {{activeState}}" id="plone-contentmenu-workflow">
+    <dt class="actionMenuHeader label-state-published">
+  {{#if own}}
+      <a href="{{pathFor route='contentItem' data=getData}}/content_status_history" title="Change the state of this item">
+            <span>State:</span>
+            <span class="state-{{workflowStateClass}}">{{workflowState}}</span>
+            <span class="arrowDownAlternative">&#9660;</span>
 
-    </a>
-{{else}}
-    <span class="noMenuAction">
+      </a>
+  {{else}}
+      <span class="noMenuAction">
 
-          <span>State:</span>
-          <span class="state-{{workflowStateClass}}">{{workflowState}}</span>
+            <span>State:</span>
+            <span class="state-{{workflowStateClass}}">{{workflowState}}</span>
 
-    </span>
-{{/if}}
-  </dt>
-{{#if own}}
-  <dd class="actionMenuContent">
-    <ul>
-{{!--
-          <li>
-            <a href="{{pathFor route='contentItem' data=getData}}/content_status_modify?workflow_action=reject" class="kssIgnore" id="workflow-transition-reject" title="Sending the item back will return the item to the original author instead of publishing it. You should preferably include a reason for why it was not published.">
+      </span>
+  {{/if}}
+    </dt>
+  {{#if own}}
+    <dd class="actionMenuContent">
+      <ul>
+  {{!--
+            <li>
+              <a href="{{pathFor route='contentItem' data=getData}}/content_status_modify?workflow_action=reject" class="kssIgnore" id="workflow-transition-reject" title="Sending the item back will return the item to the original author instead of publishing it. You should preferably include a reason for why it was not published.">
 
-                <span class="subMenuTitle">Send back</span>
-            </a>
+                  <span class="subMenuTitle">Send back</span>
+              </a>
 
-          </li>
---}}
-{{#if public}}
-          <li>
-            <a href="{{pathFor route='contentItem' data=getData}}/content_status_modify?workflow_action=retract" class="kssIgnore" id="workflow-transition-retract" title="If you submitted the item by mistake or want to perform additional edits, this will take it back.">
+            </li>
+  --}}
+  {{#if public}}
+            <li>
+              <a href="{{pathFor route='contentItem' data=getData}}/content_status_modify?workflow_action=retract" class="kssIgnore" id="workflow-transition-retract" title="If you submitted the item by mistake or want to perform additional edits, this will take it back.">
 
-                <span class="subMenuTitle">Retract</span>
-            </a>
+                  <span class="subMenuTitle">Retract</span>
+              </a>
 
-          </li>
-{{else}}
-          <li>
-            <a href="{{pathFor route='contentItem' data=getData}}/content_status_modify?workflow_action=publish" class="kssIgnore" id="workflow-transition-publish" title="Publishing the item makes it visible to other users.">
+            </li>
+  {{else}}
+            <li>
+              <a href="{{pathFor route='contentItem' data=getData}}/content_status_modify?workflow_action=publish" class="kssIgnore" id="workflow-transition-publish" title="Publishing the item makes it visible to other users.">
 
-                <span class="subMenuTitle">Publish</span>
-            </a>
+                  <span class="subMenuTitle">Publish</span>
+              </a>
 
-          </li>
-{{/if}}
+            </li>
+  {{/if}}
 
-{{!--
-          <li>
-            <a href="{{pathFor route='contentItem' data=getData}}/content_status_modify?workflow_action=submit" class="kssIgnore" id="workflow-transition-submit" title="Puts your item in a review queue, so it can be published on the site.">
+  {{!--
+            <li>
+              <a href="{{pathFor route='contentItem' data=getData}}/content_status_modify?workflow_action=submit" class="kssIgnore" id="workflow-transition-submit" title="Puts your item in a review queue, so it can be published on the site.">
 
-                <span class="subMenuTitle">Submit for publication</span>
-            </a>
+                  <span class="subMenuTitle">Submit for publication</span>
+              </a>
 
-          </li>
---}}
-          <li class="actionSeparator">
-            <a href="{{pathFor route='contentItem' data=getData}}/content_status_history" class="kssIgnore" id="workflow-transition-advanced" title="">
+            </li>
+  --}}
+            <li class="actionSeparator">
+              <a href="{{pathFor route='contentItem' data=getData}}/content_status_history" class="kssIgnore" id="workflow-transition-advanced" title="">
 
-                <span class="subMenuTitle">Advanced...</span>
-            </a>
+                  <span class="subMenuTitle">Advanced...</span>
+              </a>
 
-          </li>
+            </li>
 
-    </ul>
-  </dd>
-{{/if}}
-</dl>
+      </ul>
+    </dd>
+  {{/if}}
+  </dl>
 {{/if}}
 </template>
