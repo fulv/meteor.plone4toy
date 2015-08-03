@@ -1,4 +1,5 @@
 <template name='PloneContentmenuWorkflow'>
+{{#if ready}}
 <dl class="actionMenu {{activeState}}" id="plone-contentmenu-workflow">
   <dt class="actionMenuHeader label-state-published">
 {{#if own}}
@@ -68,4 +69,5 @@
   </dd>
 {{/if}}
 </dl>
+{{/if}}
 </template>
