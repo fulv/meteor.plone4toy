@@ -17,6 +17,9 @@ Template.PloneContentmenuWorkflow.helpers({
     } else {
       return false;
     }
+  },
+  ready: function() {
+    return Router.current().ready() && this.item;
   }
 });
 
