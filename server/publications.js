@@ -62,10 +62,11 @@ Meteor.publish('singleitem', function(options) {
         if (username === 'admin' || username === author) {
           return ContentItems.find(options);
         } else {
-          return [];
+          return ContentItems.find(options, {name: 1, workflow_state: 1});
         }
       } else {
-        return [];
+        console.log(options);
+        return ContentItems.find(options, {name: 1, workflow_state: 1});
       }
     } else {
       return ContentItems.find(options);
