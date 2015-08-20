@@ -1,6 +1,6 @@
 <template name="ListingTable">
   <div class="{{#if showBorder}}documentEditable{{/if}}">
-      {{> EditBar}}
+      {{> yield "greenbar"}}
       <dl class="portalMessage info" id="kssPortalMessage" style="display:none">
           <dt>Info</dt>
           <dd></dd>
