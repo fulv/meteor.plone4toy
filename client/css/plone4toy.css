@@ -92,50 +92,50 @@ button.close {
 
 
 #portal-sitetools {
-float: right;
-background: #e3e3e3;
-position: relative;
-z-index: 3; /* */
-top: 0;
-right: 0;
-padding: 0.25em 0.5em;
-font-size: 80%;
-border-bottom-right-radius: 0.5em;
-border-bottom-left-radius: 0.5em;
--webkit-border-bottom-right-radius: 0.5em;
--webkit-border-bottom-left-radius: 0.5em;
--moz-border-radius-bottomleft: 0.5em;
--moz-border-radius-bottomright: 0.5em;
+    float: right;
+    background: #e3e3e3;
+    position: relative;
+    z-index: 3; /* */
+    top: 0;
+    right: 0;
+    padding: 0.25em 0.5em;
+    font-size: 80%;
+    border-bottom-right-radius: 0.5em;
+    border-bottom-left-radius: 0.5em;
+    -webkit-border-bottom-right-radius: 0.5em;
+    -webkit-border-bottom-left-radius: 0.5em;
+    -moz-border-radius-bottomleft: 0.5em;
+    -moz-border-radius-bottomright: 0.5em;
 }
 
 #portal-sitetools #anon-personalbar a {
-float: left;
-margin: 0 0.5em;
+    float: left;
+    margin: 0 0.5em;
 }
 
 #portal-sitetools dl {
 }
 #portal-sitetools dt {
-font-weight: normal;
+    font-weight: normal;
 }
 #portal-sitetools dt.actionMenuHeader a:after {
-content: " ▼";
+    content: " ▼";
 }
 #portal-sitetools dd {
-right: 0;
-padding-top: 0.5em;
+    right: 0;
+    padding-top: 0.5em;
 }
 #portal-sitetools dd {
-background: #e3e3e3;
-padding-bottom: 0.5em;
+    background: #e3e3e3;
+    padding-bottom: 0.5em;
 }
 #portal-sitetools dd a {
-line-height: 2em;
-padding: 0 0.75em;
+    line-height: 2em;
+    padding: 0 0.75em;
 }
 #portal-sitetools dd a:hover {
-background: #205c90;
-color: White;
+    background: #205c90;
+    color: White;
 }
 
 div.listingBar span.nowShowing {
