@@ -8,9 +8,11 @@
                 </p>
                 <div id="portal-personaltools-wrapper">
                     <p class="hiddenStructure">Personal tools</p>
+                    {{#unless loginsEnabled}}
                     <dl class="actionMenu deactivated" id="portal-personaltools">
                         {{> loginButtons align="right"}}
                     </dl>
+                    {{/unless}}
                     {{> SiteStats}}
                 </div>
                 <div id="portal-searchbox">

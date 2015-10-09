@@ -31,6 +31,21 @@
               {{pluralize connections "simultaneous connection"}}
             </a>
           </li>
+          {{#if isAdmin}}
+            {{#if loginsEnabled}}
+            <li id="sitetools-enableLogins">
+              <a href="{{siteRoot}}">
+                Enable Logins
+              </a>
+            </li>
+            {{else}}
+            <li id="sitetools-kill">
+              <a href="{{siteRoot}}">
+                Log out all users!
+              </a>
+            </li>
+            {{/if}}
+          {{/if}}
       </ul>
     </dd>
 

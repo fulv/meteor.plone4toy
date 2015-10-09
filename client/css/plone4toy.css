@@ -196,3 +196,8 @@ div.listingBar span.nowShowing {
     cursor: not-allowed;
     pointer-events: none;
 }
+
+#sitetools-enableLogins a,
+#sitetools-kill a {
+    color: red;
+}
